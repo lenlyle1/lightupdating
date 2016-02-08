@@ -1,0 +1,3 @@
+<?php
+
+$defaultPage = '404';

@@ -1,0 +1,25 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+
+RewriteCond %{REQUEST_URI} \.(jpg|jpeg|gif|png|ico)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*)$ /imageResizer.php?img=$1 [QSA]
+
+
+RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpe?g|gif)$ [NC]
+
+RewriteRule ^flush/?																	/index.php?flush=true
+# rewrite url variables - admin
+RewriteRule ^admin/([a-zA-Z0-9\-]+)/([0-9a-zA-Z\-]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/?$ 	/index.php?admin=true&module=$1&page=$2&var1=$3&var2=$4
+RewriteRule ^admin/([a-zA-Z0-9\-]+)/([0-9a-zA-Z\-]+)/([0-9a-zA-Z]+)?$ 					/index.php?admin=true&module=$1&page=$2&var1=$3
+RewriteRule ^admin/([a-zA-Z0-9\-]+)/([0-9a-zA-Z\-]+)?$ 									/index.php?admin=true&module=$1&page=$2
+RewriteRule ^admin/([a-zA-Z0-9\-]+)?$ 													/index.php?admin=true&module=$1
+RewriteRule ^admin/?$ 																	/index.php?admin=true
+
+# rewrite url variables - main
+RewriteRule ^([a-zA-Z0-9\-]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/?$ 			/index.php?module=$1&page=$2&var1=$3&var2=$4
+RewriteRule ^([a-zA-Z0-9\-]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)?$ 							/index.php?module=$1&page=$2&var1=$3
+RewriteRule ^([a-zA-Z0-9\-]+)/([0-9a-zA-Z]+)?$ 											/index.php?module=$1&page=$2
+RewriteRule ^([a-zA-Z0-9\-]+)?$ 														/index.php?module=$1

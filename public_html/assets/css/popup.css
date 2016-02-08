@@ -1,0 +1,29 @@
+
+.popup {
+	border: 1px solid #aaa;
+	border-radius: 5px;
+}
+.closeBar {
+	text-align: right;
+	border-bottom: 1px solid #aaa;
+	background-color: #ddd;
+	padding: 2px;
+}
+.closeBar .x{
+	border: 1px solid #666;
+	font-weight: bold;
+	cursor: pointer;
+	font-family: arial, sans serif;
+	color: #666;
+	position: absolute;
+	margin-top: -10px;
+	margin-left: -45px;
+	background-color: #fff;
+	width: 57px;
+	height: 18px;
+	border-radius: 10px;
+	text-align: center;
+}
+.popupContnent {
+	padding: 5px;
+}
