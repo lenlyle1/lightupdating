@@ -24,8 +24,10 @@ if(!empty($flush)){
 
 if(!$site = Site::load()){
 	Site::load404();
-} 
-	
+}
+
+die('test');
+
 $user = Session::get('user');
 
 Template::assign('user', $user);	
