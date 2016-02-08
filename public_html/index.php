@@ -26,7 +26,7 @@ if(!$site = Site::load()){
 	Site::load404();
 }
 
-echo 'test';
+//echo 'test';
 
 $user = Session::get('user');
 
