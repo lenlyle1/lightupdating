@@ -39,8 +39,8 @@ Thumbs.db
 
 
 # smarty compiled #
-/var/www/lightupmylove/protected/templates/templates_c/*
+/**/templates/templates_c/*
 
 # combined assets #
-/var/www/lightupmylove//var/www/lightupmylove/*
+/**/var/www/lightupmylove/*
 
