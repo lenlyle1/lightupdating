@@ -1,28 +1,26 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-03 20:16:17
-         compiled from "/var/www/lightupmylove.com/protected/templates/home/home.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1010863341569aae1d0005b5-89219386%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2016-02-09 15:23:13
+         compiled from "/var/www/lightupdating/protected/templates/home/home.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:130328471656ba046171fec1-68291894%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '5cf80c4e6ff0a391e27bffb870a328f94e02f700' => 
+    'f9f65e792913a89303b2bc7d0bf42507ae06b8ad' => 
     array (
-      0 => '/var/www/lightupmylove.com/protected/templates/home/home.tpl',
-      1 => 1453927323,
+      0 => '/var/www/lightupdating/protected/templates/home/home.tpl',
+      1 => 1454969588,
       2 => 'file',
     ),
-    '74df6527a27de36803c4874f5cbf309919e09ffb' => 
+    '0c5aa149af02f7bc5220d9ffcb07cb35b44bf536' => 
     array (
-      0 => '/var/www/lightupmylove.com/protected/templates/base.tpl',
-      1 => 1454530233,
+      0 => '/var/www/lightupdating/protected/templates/base.tpl',
+      1 => 1454969588,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1010863341569aae1d0005b5-89219386',
+  'nocache_hash' => '130328471656ba046171fec1-68291894',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_569aae1d0028c8_58271031',
   'variables' => 
   array (
     'site' => 0,
@@ -33,10 +31,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'swatches' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_56ba0461854c61_49479576',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_569aae1d0028c8_58271031')) {function content_569aae1d0028c8_58271031($_smarty_tpl) {?><?php if (!is_callable('smarty_function_embedcss')) include '/var/www/lightupmylove.com/protected/classes/Smarty/plugins/function.embedcss.php';
-if (!is_callable('smarty_function_embedjs')) include '/var/www/lightupmylove.com/protected/classes/Smarty/plugins/function.embedjs.php';
-if (!is_callable('smarty_function_compile_stack')) include '/var/www/lightupmylove.com/protected/classes/Smarty/plugins/function.compile_stack.php';
+<?php if ($_valid && !is_callable('content_56ba0461854c61_49479576')) {function content_56ba0461854c61_49479576($_smarty_tpl) {?><?php if (!is_callable('smarty_function_embedcss')) include '/var/www/lightupdating/protected/classes/Smarty/plugins/function.embedcss.php';
+if (!is_callable('smarty_function_embedjs')) include '/var/www/lightupdating/protected/classes/Smarty/plugins/function.embedjs.php';
+if (!is_callable('smarty_function_compile_stack')) include '/var/www/lightupdating/protected/classes/Smarty/plugins/function.compile_stack.php';
 ?><html>
 	<head>
 		<title><?php echo ucwords($_smarty_tpl->tpl_vars['site']->value->name);?>
