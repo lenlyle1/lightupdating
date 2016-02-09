@@ -8,7 +8,6 @@ require_once "../protected/bootstrap.php";
 	Start timer
 **/
 Timer::start();
-
 /**
 	parse $_GET vars
 **/
@@ -26,7 +25,8 @@ if(!$site = Site::load()){
 	Site::load404();
 }
 
-//echo 'test';
+//test
+
 
 $user = Session::get('user');
 
