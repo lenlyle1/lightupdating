@@ -27,6 +27,7 @@ if(!$site = Site::load()){
 }
 
 //echo 'test';
+// this is a comment
 
 $user = Session::get('user');
 
