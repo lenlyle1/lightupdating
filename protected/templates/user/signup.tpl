@@ -54,9 +54,8 @@
 		<h1>Signup</h1>
 	</div>
 	<div class="row error hidden" id="errorBox"></div>
-		<div class="row">
-			{include file="user/signupForm.tpl"}
-		</div>
+	<div class="row">
+		{include file="user/signupForm.tpl"}
 	</div>
 
 {/block}

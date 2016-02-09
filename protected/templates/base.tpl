@@ -57,7 +57,7 @@
 						{include file="top-menu.tpl"}
 					</div>
 					<div class="right">
-						<a class="btn btn-head" href="/users/logout">Logout</a>
+						<a class="btn btn-head" href="/user/logout">Logout</a>
 					</div>
 				{else }
 					<div class="right" >
