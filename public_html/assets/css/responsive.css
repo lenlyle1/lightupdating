@@ -7,12 +7,10 @@
 	.form-item {
 		width: 100%;
 	}
-.signupHolder {
-	border-radius: 10px;
-	border: 1px solid #ccc;
-	background-color: #eee;
-	margin-bottom: 10px;
-}
+	.signupHolder {
+		width: 50%;
+		margin: auto;
+	}
 
 } // browser
 
