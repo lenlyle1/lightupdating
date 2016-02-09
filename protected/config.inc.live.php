@@ -42,5 +42,4 @@ $settings->swearwords = array(
 	'cunt',
 	'motherfucker'
 );
-
-error_log('test');
+test();
