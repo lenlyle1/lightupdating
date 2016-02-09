@@ -9,6 +9,7 @@ require_once "../protected/bootstrap.php";
 **/
 Timer::start();
 
+error_log('sdffgsdfgsdfg');
 /**
 	parse $_GET vars
 **/
