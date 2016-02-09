@@ -38,9 +38,10 @@ ehthumbs.db
 Thumbs.db
 
 
+
 # smarty compiled #
-/var/www/lightupmylove/protected/templates/templates_c/*
+/**/protected/templates/templates_c/*
 
 # combined assets #
-/var/www/lightupmylove//var/www/lightupmylove/*
+/**/public_html/assets/combined/*
 
