@@ -31,8 +31,8 @@ $settings->memc_port = 11211;
 /*
 	Script compression
 */
-$settings->compressJS = true;
-$settings->compressCSS = true;
+$settings->compressJS = false;
+$settings->compressCSS = false;
 
 $settings->cssStack = array();
 $settings->jsStack = array();
