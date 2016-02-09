@@ -8,22 +8,35 @@
 	border-bottom: 1px solid #aaa;
 	background-color: #ddd;
 	padding: 2px;
+	height: 20px;
 }
+
 .closeBar .x{
-	border: 1px solid #666;
 	font-weight: bold;
+	display: inline-block;
 	cursor: pointer;
+	width:20px;
+	height: 20px;
+	line-height: 20px;
 	font-family: arial, sans serif;
 	color: #666;
-	position: absolute;
-	margin-top: -10px;
-	margin-left: -45px;
-	background-color: #fff;
-	width: 57px;
-	height: 18px;
+	background-color: #ddd;
 	border-radius: 10px;
 	text-align: center;
 }
-.popupContnent {
-	padding: 5px;
+
+.closeBar .x:hover {
+	background-color: #aaa;
+}
+
+.closeButton {
+
+}
+.popupContent {
+	padding: 20px;
+}
+.btn-close {
+	background-color: #ccc;
+	margin: 5px;
+	border-radius: 0px;
 }

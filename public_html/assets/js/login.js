@@ -38,15 +38,15 @@ var Login = {
 	}, 
 	
 	parseFB: function(response, signup){
-		Log.write(response);
 		var uid = response.authResponse.userID;
 		var accessToken = response.authResponse.accessToken;
 
 		if(response.status === 'connected'){
 			if(signup){
 				Log.write('here')
-				Log.wriite(response)
+				Log.write(response)
 				Signup.getFBdetails();
+				FB.logout()
 			}
 		}
 	},

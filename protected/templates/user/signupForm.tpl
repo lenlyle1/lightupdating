@@ -1,12 +1,10 @@
 				<div class="signupHolder">
-				{**
 					<fieldset class="form-item center fbSignup">
 						<div class="btn btn-fb" onclick="Signup.fbSignup();"><i class="fa fa-facebook"></i> Sign up with Facebook</div>
 					</fieldset>
 					<fieldset class="form-item center fbSignup">
 						<div>- or -</div>
 					</fieldset>
-				**}
 					<form id="signup" method="post">
 						<fieldset class="form-item">
 							<label for="emailInput">First Name</label>

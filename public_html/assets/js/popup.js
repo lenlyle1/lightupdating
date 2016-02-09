@@ -52,13 +52,19 @@ function Popup(_options){
 		this.recenter();
 
 		if(options.closeBar){
-			var closebar = '<div class="closeBar"><diz class="x">Close</div></div>';
+			var closebar = '<div class="closeBar"><div class="x right">X</div></div>';
 			$('#'+options.id).append(closebar);
 			$('#'+options.id).find('.x').click(function(){
 				self.close()
 			})
 		}
-		$('#'+options.id).append('<div class="popupContnent">'+options.content+'</div>');
+		// close button
+		var closeButton = '<div class="right btn btn-close">Close</div>';
+		$('#'+options.id).append('<div class="popupContent">'+options.content+'</div>');
+		$('#'+options.id).append(closeButton);
+		$('#'+options.id).find('.btn-close').click(function(){
+			self.close()
+		})
 	}
 
 	this.showOverlay = function(){

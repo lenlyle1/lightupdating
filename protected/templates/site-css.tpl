@@ -18,8 +18,8 @@ header, footer {
 }
 .btn-head {
 	background-color: {$swatch2};
-	border:  0 2px 0 2px solid {$swatch7};
 	color: {$swatch5};
+	margin-top: 10px;
 }
 label {
 	color: {$swatch4};
