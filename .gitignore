@@ -42,5 +42,12 @@ Thumbs.db
 /var/www/lightupmylove/protected/templates/templates_c/*
 
 # combined assets #
-/var/www/lightupmylove//var/www/lightupmylove/*
+/var/www/lightupmylove/public_html/assets/combined/*
+
+
+# smarty compiled #
+/**/protected/templates/templates_c/*
+
+# combined assets #
+/**/public_html/assets/combined/*
 
