@@ -7,12 +7,8 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
 if( preg_match('/dev\./', $_SERVER['SERVER_NAME'])) {
     define("IS_LIVE", false);
-    ini_set('display_errors', 1);
-    ini_set('log_errors', 0);
 } else {
     define("IS_LIVE", true);
-    ini_set('display_errors', 0);
-    ini_set('log_errors', 1);
 }
 
 /* timezone */
