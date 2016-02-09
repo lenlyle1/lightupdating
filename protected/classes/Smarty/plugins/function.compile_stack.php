@@ -20,6 +20,8 @@ function smarty_function_compile_stack($params, $smarty)
 
 	// compressCSS
 
+	Debugger::debug($settings->cssStack);
+	
 	if($settings->compressCSS){
 		$cssTs = 0;
 

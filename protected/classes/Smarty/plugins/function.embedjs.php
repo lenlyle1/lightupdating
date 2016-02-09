@@ -12,7 +12,7 @@ function smarty_function_embedjs($params)
 
 	//Debugger::debug($params);
 	// hack to force no caching on dev
-	if(!IS_LIVE){
+	if(!IS_LIVE && !$settings->compressJS){
 		$date = new DateTime();
 		$params['script'] .= '?v=' . $date->getTimestamp();
 	}
