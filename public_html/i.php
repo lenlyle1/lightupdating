@@ -1,2 +1,5 @@
 <?php
-phpinfo();
+//phpinfo();
+
+
+echo 'this is a test ... testing 123';
