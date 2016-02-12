@@ -14,8 +14,6 @@ Class Users_Recaptcha {
 						'remoteip' => $_SERVER['REMOTE_ADDR']
 						);
 
-		Debugger::debug($payload);
-		
 		$options = array(
 		        'http' => array(
 		        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -26,8 +24,10 @@ Class Users_Recaptcha {
 
 		$context  = stream_context_create($options);
 		$result = file_get_contents(self::$verifyUrl, false, $context);
+		
+		Debugger::debug($result, 'google verification');
 
-		Debugger::debug($result);
+		return $result;
 	}
 }
 

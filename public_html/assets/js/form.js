@@ -15,12 +15,13 @@ var Form = {
 			$('#' + field + 'Input').prev().addClass('error'); 
 		}
 		if(typeof error != 'undefined'){
-			$('#' + field + 'Input').before('<div class="formErrText">' + error + '</div>');
+			Form.clearErrors(form);
+			$('#' + field + 'Input').before('<div class="error">' + error + '</div>');
 		}
 	},
 
 	clearErrors: function(form){
-		$(form).find(".")
+		$(".error").remove();
 	},
 
 	spinButton: function(button){

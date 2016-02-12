@@ -5,6 +5,11 @@ var Signup = {
 			var form = 'signup';
 			Validation.clearErrors(form);
 			Signup.submitSignup(form);
+		});
+		$("input[name='password']").focus(function(){
+            this.type="text";
+		}).blur(function(){
+            this.type="password";
 		})
 	},
 
@@ -17,36 +22,46 @@ var Signup = {
 		return true;
 	},
 
+	showhidePass: function(box){
+		Log.write(box);
+	},
+
 	submitSignup: function(form){
+		var valid = false;
 
 		if(Signup.validate(form)){
 			if(Signup.testRecaptcha()){
-				Log.write('submitting');
+				Log.write('js valid');
 				//$("#" + form).submit();
-				var submit 
+				valid = true; 
 			} 
+			valid = true;
 		}
 		
-		Log.write('submitting');
-		var url = '/user/signup';
+		if(valid){
+			Log.write('submitting');
+			var url = '/user/signup?ajax=true';
 
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: $("#" + form).serializeArray(),
-			dataType: "json",
-			success: function(response){
-				if(typeof response.errors != "undefined"){
-					$.each(response.errors, function(i, value){
-						Form.showError(form, i, value);
-						Log.write(i +":" + value);
-					})
-					console.log(response);
-				} else {
+			$.ajax({
+				type: "POST",
+				url: url + '&validate=true',
+				data: $("#" + form).serializeArray(),
+				dataType: "json",
+				success: function(response){
 					Log.write(response);
+					if(response.success == false){
+						$.each(response.errors, function(i, value){
+							Form.showError(form, i, value);
+							Alert.error(value);
+							Log.write(i +":" + value);
+						})
+					} else {
+						Log.write('valid');
+						// all good, submit
+					}
 				}
-			}
-		})
+			})
+		}
 		
 	},
 

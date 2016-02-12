@@ -19,9 +19,6 @@ function smarty_function_compile_stack($params, $smarty)
 	$module = $smarty->getTemplateVars('module');
 
 	// compressCSS
-
-	Debugger::debug($settings->cssStack);
-	
 	if($settings->compressCSS){
 		$cssTs = 0;
 

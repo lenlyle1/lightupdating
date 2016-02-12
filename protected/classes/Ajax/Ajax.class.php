@@ -2,20 +2,30 @@
 
 Class Ajax {
 
-	public static function respond($response)
+	private static $response = array();
+
+	public static function respond()
 	{
-		echo json_encode($response);
+		echo json_encode(self::$response);
 
 		exit;
 	}
 
-	public static function setupResponse()
+	public static function setupResponse($error = null)
 	{
-		$response = array(
-			'error' => '',
-			'success' => false
-		);
+		self::addError($error);
+		self::setSuccess($error);
+	}
 
-		return $response;
+	public static function addError($error)
+	{
+		self::$response['errors'] = $error;
+	}
+
+	public static function setSuccess($error)
+	{
+		$success = ($error) ? false : true;
+
+		self::$response['success'] = $success;
 	}
 }

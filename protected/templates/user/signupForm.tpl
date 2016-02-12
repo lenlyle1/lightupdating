@@ -9,32 +9,32 @@
 						<fieldset class="form-item">
 							<label for="emailInput">First Name</label>
 							<div class="inputHolder">
-								<input class="required" name="first" id="firstInput" placeholder="First Name" />
+								<input class="required medium" name="first" placeholder="First Name" {if !$isLive}value="test"{/if}/>
 							</div>
 						</fieldset>
 
 						<fieldset class="form-item">
 							<label for="nameInput">Last Name</label>
 							<div class="inputHolder">
-								<input class="required" name="last" id="lastInput" placeholder="Last Name" />
+								<input class="required medium" name="last" placeholder="Last Name"  {if !$isLive}value="test"{/if}/>
 							</div>
 						</fieldset>
 						<fieldset class="form-item">
 							<label for="emailInput">Username</label>
 							<div class="inputHolder">
-								<input class="required" name="username" id="usernameInput" placeholder="Username" />
+								<input class="required medium" name="username" placeholder="Username"  {if !$isLive}value="tester"{/if}/>
 							</div>
 						</fieldset>
 						<fieldset class="form-item">
 							<label for="emailInput">Email</label>
 							<div class="inputHolder">
-								<input class="required" name="email" id="emailInput" placeholder="Email" />
+								<input class="required large" name="email" placeholder="Email"  {if !$isLive}value="test@lightupmylove.com"{/if}/>
 							</div>
 						</fieldset>
 						<fieldset class="form-item">
 							<label for="emailInput">Password</label>
 							<div class="inputHolder">
-								<input class="required small" name="password" type="password" id="passwordInput" placeholder="Password" />
+								<input class="required medium" name="password" type="password" placeholder="Password"  {if !$isLive}value="Scr0tums"{/if}/>
 							</div>
 						</fieldset>
 						<fieldset class="form-item">
@@ -42,7 +42,7 @@
 							<div class="inputHolder">
 								<select name="gender" id="genderSelect" class="required">
 									<option value="">Select</option>
-									<option value="m">Male</option>
+									<option value="m" {if !$isLive}selected="selected"{/if}>Male</option>
 									<option value="f">Female</option>							
 								</select>
 							</div>
@@ -53,19 +53,19 @@
 								<select name="month" class="required">
 									<option value="">Month</option>
 									{for $month=1 to 12}
-									<option value="{$month}">{$month}</option>
+									<option value="{$month}" {if !$isLive && $month == 11}selected="selected"{/if}>{$month}</option>
 									{/for}
 								</select>
 								<select name="day">
 									<option value="">Day</option>
 									{for $day=1 to 31}
-									<option value="{$day}">{$day}</option>
+									<option value="{$day}" {if !$isLive && $day == 25}selected="selected"{/if}>{$day}</option>
 									{/for}
 								</select>
 								<select name="year">
 									<option value="">Year</option>
 									{for $year=$smarty.now|date_format:'%Y' to 1920 step -1}
-									<option value="{$year}">{$year}</option>
+									<option value="{$year}" {if !$isLive && $year == 1972}selected="selected"{/if}>{$year}</option>
 									{/for}
 								</select>
 							</div>
@@ -75,7 +75,7 @@
 							<div class="inputHolder">
 								<select name="country" id="country">
 									<option value="">Select</option>
-									<option value="235">United States</option>
+									<option value="235" {if !$isLive}selected="selected"{/if}>United States</option>
 									<option value="40">Canada</option>
 									<option value="234">United Kingdom</option>
 									{foreach $countries as $country}
@@ -89,7 +89,7 @@
 						<fieldset class="form-item">
 							<label for="emailInput">Postcode</label>
 							<div class="inputHolder">
-								<input class="required" name="postcode" id="" placeholder="" />
+								<input class="required" name="postcode" id="" placeholder=""  {if !$isLive}value="test"{/if}/>
 						</fieldset>
 						<fieldset class="form-item">
 							<label for="emailInput">Ethnicity</label>
@@ -98,7 +98,7 @@
 								<select name="ethnicity" class="required">
 									<option value="">Select</option>
 									{foreach $ethnicities as $ethnicity}
-										<option value="{$ethnicity->ethnicity_id}">{$ethnicity->name}</option>
+										<option value="{$ethnicity->ethnicity_id}" {if !$isLive && $ethnicity->name == 'Caucasian'}selected="selected"{/if}>{$ethnicity->name}</option>
 									{/foreach}
 								</select>
 							</div>
@@ -108,7 +108,7 @@
 							<div class="inputHolder">
 								<select name="sexuality" class="required">
 									<option value="">Select</option>
-									<option value="S">Straight</option>
+									<option value="S" {if !$isLive}selected="selected"{/if}>Straight</option>
 									<option value="G">Gay</option>
 									<option value="B">Bisexual</option>
 								</select>

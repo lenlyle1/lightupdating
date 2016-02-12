@@ -23,14 +23,14 @@ var Login = {
 				Log.write('not connected')
 				FB.login(
 			        function(response) {
-			      		Login.parseFB(response);
+			      		Login.parseFB(response, signup);
 			        }
 		    	);    		
 			} else {
 				Log.write('not logged in')
 				FB.login(
 			        function(response) {
-			      		Login.parseFB(response);
+			      		Login.parseFB(response, signup);
 			        }
 		    	);    			
 			}

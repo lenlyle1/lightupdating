@@ -2,18 +2,28 @@
 
 
 if(!empty($_POST)){
+	Debugger::debug($_POST, 'POST');
+	Debugger::debug($_GET, 'GET');
+	
+	if(!empty($_GET['validate'])){
+		Debugger::debug('VALIDATING');
+		$valid = Validate_User::account(
+			$_POST['username'],
+			$_POST['password'],
+			$_POST['email']
+		);
+	}
 
-	Debugger::debug($_POST);
-	if(!empty($_POST['fbsignup'])){
-
-	} else {
+	if($valid){
+		Debugger::debug('SUBMITTING');
 		if($_POST['g-recaptcha-response'] == ''){
 			Errors::set('Must prove you are a real spell_config_personal(dictionary_link, file)');
 		} else {
-			$verified = Users_Recaptcha::verify($_POST['g-recaptcha-response']);
+			$verification = json_decode(Users_Recaptcha::verify($_POST['g-recaptcha-response']));
 		}
-
-		if($verified){
+	
+		if($verification -> success){
+			Debugger::debug('verified');
 			if(!$user = Users::update(
 				null,
 				$_POST['username'],
@@ -22,11 +32,10 @@ if(!empty($_POST)){
 				$_POST['first'],
 				$_POST['last']
 			)){
-				Debugger::debug(Errors::getErrors(), 'ERROR');
-				Template::assign('errors', Errors::getErrors());
+				$errors = Errors::getErrors();
 			}
 		} else {
-
+			Debugger::debug('not verified');
 		}
 	}
 
@@ -35,12 +44,17 @@ if(!empty($_POST)){
 		Debugger::debug($user);
 		Users::login($email, $password);
 		//redirect to homepage
-	} else {
-
 	}
 
+	Debugger::debug(Errors::getErrors(), 'ERROR');
+
+	if(!empty($_GET['ajax'])){
+		Ajax::setupResponse(Errors::getErrors());
+		Ajax::respond();
+	}
 }
-	// show signup form
-	Template::assign('recaptcha', true);
-	Template::assign('countries', Users_Countries::load());
-	Template::assign('ethnicities', Users_Ethnicity::load());
+
+// show signup form
+Template::assign('recaptcha', true);
+Template::assign('countries', Users_Countries::load());
+Template::assign('ethnicities', Users_Ethnicity::load());
