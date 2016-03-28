@@ -84,7 +84,17 @@ Class Users{
 		return $result;
 	}
 
-	public static function update($user_id = null, $username = null, $password = null, $email = null, $first = null, $last = null)
+	public static function update($user_id = null, 
+								  $username = null, 
+								  $password = null, 
+								  $email = null, 
+								  $first = null, 
+								  $last = null,  
+								  $gender = null,  
+								  $dob = null,  
+								  $country = null,  
+								  $postcode = null,
+								  $ethicity)
 	{
 
 		$valid = Validate_User::account($username, $password, $email);
@@ -99,25 +109,47 @@ Class Users{
 					username,
 					password,
 					first,
-					last
+					last,
+					gender,
+					dob,
+					country,
+					postcode,
+					ethnicity,
+					created_ts
 				) VALUES (
 					:user_id,
 					:username,
 					:password,
 					:first,
-					:last
+					:last,
+					:gender,
+					:dob,
+					:country,
+					:postcode,
+					:ethnicity,
+					UNIX_TIMESTAMP()
 				) ON DUPLICATE KEY UPDATE 					
 					username = :username,
 					password = :password,
 					first = :first,
-					last = :last";
+					last = :last,					
+					gender = :gender,
+					dob = :dob,
+					country = :country,
+					postcode = :postcode,
+					ethnicity = :ethnicity";
 
 		$userId = Mysql::insertUpdate($sql, array(
 			':user_id' => $user_id,
 			':username' => $username,
 			':password' => self::encryptPassword($password),
 			':first' => $first,
-			':last' => $last
+			':last' => $last,
+			':gender' => $gender,
+			':dob' => $dob,
+			':country' => $country,
+			':postcode' => $postcode,
+			':ethnicity' => $ethicity,
 		));
 
 		Debugger::debug($userId, 'user id');
@@ -154,4 +186,8 @@ Class Users{
 		$user = Session::get('user');
 	}
 
+	public static function create($username, $email, $password)
+	{
+		
+	}
 }

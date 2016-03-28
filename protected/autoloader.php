@@ -3,6 +3,9 @@ spl_autoload_register(function ($class) {
     if(strstr($class, 'Smarty')){
         return;
     }
+    if(strstr($class, 'Composer')){
+        return;
+    }
     try {
         if(strstr($class, "_") && substr_count($class, "_") == 1){
             $classBits = split("_", $class);
@@ -17,6 +20,7 @@ spl_autoload_register(function ($class) {
             throw new Exception(SITE_ROOT . '/protected/classes/' . $class . '/' . $class . '.class.php');
         }
     } catch (Exception $e){
+        //echo $e;
         Errors::handle($e);
         die('class not found - ' . $class);
     }

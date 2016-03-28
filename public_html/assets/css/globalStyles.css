@@ -1,6 +1,10 @@
 
 .error {
-	color: #f00;
+	color: #f00;    
+}
+form .error{
+	font-size: 12px;
+    font-weight: 400;
 }
 .formError {
 	border: 1px solid #f00 !important;

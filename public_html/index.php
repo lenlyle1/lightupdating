@@ -25,9 +25,6 @@ if(!$site = Site::load()){
 	Site::load404();
 }
 
-//test
-
-
 $user = Session::get('user');
 
 Template::assign('user', $user);	

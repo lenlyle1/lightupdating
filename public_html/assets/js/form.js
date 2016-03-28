@@ -9,14 +9,15 @@ var Form = {
 			}
 		});
 
-		//$('#' + field + 'Input').addClass('formError'); 
+		var formItem = $('#' + form + " [name='" + field + "'");
+		formItem.addClass('formError'); 
 
-		if($('#' + field + 'Input').prev().prop("tagName") == 'LABEL'){
-			$('#' + field + 'Input').prev().addClass('error'); 
+		if(formItem.prev().prop("tagName") == 'LABEL'){
+			formItem.prev().addClass('error'); 
 		}
 		if(typeof error != 'undefined'){
 			Form.clearErrors(form);
-			$('#' + field + 'Input').before('<div class="error">' + error + '</div>');
+			formItem.before('<div class="error">' + error + '</div>');
 		}
 	},
 

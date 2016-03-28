@@ -1,6 +1,10 @@
 <?php
 
 
+$location = Location::GeoIPAddress();
+
+Debugger::debug(Metas::loadAll('user'));
+
 if(!empty($_POST)){
 	Debugger::debug($_POST, 'POST');
 	Debugger::debug($_GET, 'GET');
@@ -30,7 +34,12 @@ if(!empty($_POST)){
 				$_POST['password'],
 				$_POST['email'],
 				$_POST['first'],
-				$_POST['last']
+				$_POST['last'],
+				$_POST['gender'],
+				mktime(0, 0, 1, $_POST['month'], $_POST['day'],	$_POST['year']),
+				$_POST['country'],
+				$_POST['postcode'],
+				$_POST['ethnicity']
 			)){
 				$errors = Errors::getErrors();
 			}
@@ -55,6 +64,8 @@ if(!empty($_POST)){
 }
 
 // show signup form
+Template::assign('location', $location);
+
 Template::assign('recaptcha', true);
 Template::assign('countries', Users_Countries::load());
 Template::assign('ethnicities', Users_Ethnicity::load());

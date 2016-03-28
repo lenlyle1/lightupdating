@@ -36,6 +36,9 @@ Class Mysql {
 	public static function runQuery($sql, $params = null)
 	{
 		$db = self::getDB();
+		if(empty($db)){
+			die('There has been a serious problem');
+		}
 		$stmt = $db->prepare($sql);
 
 		try{

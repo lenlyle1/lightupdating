@@ -101,3 +101,14 @@ footer .contentHolder{
 	width: 60px;
 	height: 60px;
 }
+
+.signupHolderAdmin {
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+}

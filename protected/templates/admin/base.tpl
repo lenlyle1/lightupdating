@@ -18,7 +18,6 @@
 			{embedcss cssfile="/assets/css/geometry.css"}
 			{embedcss cssfile="/assets/css/forms.css"}
 			{embedcss cssfile="/assets/css/swatch.css"}
-			{embedcss cssfile="/assets/css/responsive.css"}
 			{embedcss cssfile="/assets/css/globalStyles.css"}
 			{embedcss cssfile="/assets/css/popup.css"}
 		{/block}
@@ -58,6 +57,7 @@
 						<li><a class="btn" href="/admin/images">Images</a></li>
 						<li><a class="btn" href="/admin/sites">Sites</a></li>
 						<li><a class="btn" href="/admin/roles">Roles</a></li>
+						<li><a class="btn" href="/admin/metas">Metas</a></li>
 					</ul>
 				</div>
 				<div class="right" style="margin-top: 15px;">
@@ -66,11 +66,10 @@
 				{/if}
 			</div>
 		</header>
-
-		<div class="contentHolder main-body">		
+		<div class="contentHolder main-body">
 			<div class="row">
 				<h1>{block name="heading"}
-						{ucwords($module)}
+						<a href="/admin/{$module}">{ucwords($module)}</a>
 						{if $module != $page}
 							 - {str_replace('-', ' ', ucwords($page))}
 						{/if}

@@ -53,7 +53,8 @@
 								<select name="month" class="required">
 									<option value="">Month</option>
 									{for $month=1 to 12}
-									<option value="{$month}" {if !$isLive && $month == 11}selected="selected"{/if}>{$month}</option>
+
+									<option value="{$month}" {if !$isLive && $month == 11}selected="selected"{/if}>{'1-'|@cat:$month:'-':'Y'|date|@strtotime|date_format:"%b"}</option>
 									{/for}
 								</select>
 								<select name="day">
@@ -64,7 +65,7 @@
 								</select>
 								<select name="year">
 									<option value="">Year</option>
-									{for $year=$smarty.now|date_format:'%Y' to 1920 step -1}
+									{for $year=($smarty.now|date_format:'%Y')-18 to 1920 step -1}
 									<option value="{$year}" {if !$isLive && $year == 1972}selected="selected"{/if}>{$year}</option>
 									{/for}
 								</select>
@@ -89,7 +90,7 @@
 						<fieldset class="form-item">
 							<label for="emailInput">Postcode</label>
 							<div class="inputHolder">
-								<input class="required" name="postcode" id="" placeholder=""  {if !$isLive}value="test"{/if}/>
+								<input class="required" name="postcode" id="" placeholder="" value="{if !empty($location->postal)}$location->postal{elseif !$isLive}94520{/if}" />
 						</fieldset>
 						<fieldset class="form-item">
 							<label for="emailInput">Ethnicity</label>

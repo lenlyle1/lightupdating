@@ -4,9 +4,9 @@ Class Memc{
 
 	private static $memc = null;
 
-	private static $server;
+	private static $server = null;
 
-	private static $port;
+	private static $port = null;
 
 	private static function getInstance()
 	{
@@ -17,8 +17,19 @@ Class Memc{
 		return self::$memc;
 	}
 
+	public static function addServer($server, $port)
+	{
+		self::$server = $server;
+		self::$port = $port;
+	}
+
 	public static function init()
 	{
+		if(!self::$server && !self::$server){
+			// die, change to clean handling later
+			//die('cache not configured');
+		}
+
 		try{
 		    self::$memc = new Memcached();
 			self::$memc->setOption(Memcached::OPT_LIBKETAMA_COMPATIBLE, true);
@@ -37,13 +48,9 @@ Class Memc{
 		}
 
 		if(!$data = $memc->get($key)){
-			//Debugger::debug($key . ' not in cache, run query', 'MEMC', null);
 			$data = Mysql::$action($sql, $params);
 
 			self::save($key, $data, $expire);
-		} else {
-			//Debugger::debug('cache found: ' . $key);
-			//Debugger::debug($data);
 		}
 
 		return $data;
@@ -52,7 +59,6 @@ Class Memc{
 	public static function save($key, $data, $expire = 5)
 	{
 		$memc = self::getInstance();
-		//Debugger::debug('adding to cache ' . $key, 'MEMC');
 
 		$memc->set($key, $data, $expire);
 	}
@@ -67,7 +73,6 @@ Class Memc{
 			}
 		}
 
-		//Debugger::debug(md5($key), 'MEMC');
 		return md5($key);
 	}
 

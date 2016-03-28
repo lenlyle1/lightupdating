@@ -31,11 +31,8 @@ var Signup = {
 
 		if(Signup.validate(form)){
 			if(Signup.testRecaptcha()){
-				Log.write('js valid');
-				//$("#" + form).submit();
 				valid = true; 
 			} 
-			valid = true;
 		}
 		
 		if(valid){
@@ -48,7 +45,6 @@ var Signup = {
 				data: $("#" + form).serializeArray(),
 				dataType: "json",
 				success: function(response){
-					Log.write(response);
 					if(response.success == false){
 						$.each(response.errors, function(i, value){
 							Form.showError(form, i, value);
@@ -56,8 +52,8 @@ var Signup = {
 							Log.write(i +":" + value);
 						})
 					} else {
-						Log.write('valid');
-						// all good, submit
+						Log.write('success');
+
 					}
 				}
 			})
@@ -67,9 +63,8 @@ var Signup = {
 
 	testRecaptcha: function(){
 		if($("#g-recaptcha-response").val() == ''){
-			Log.write('you must recaptcha');
-			
 			Alert.popup('error', 'You must prove you are human');
+			$('.g-recaptcha').addClass('formError')
 			return false;
 		}
 
