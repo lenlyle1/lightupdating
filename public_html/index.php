@@ -17,21 +17,20 @@ foreach($_GET as $k => $v){
 }
 
 if(!empty($flush)){
-	Memc::flush();
+	$memc->flush();
 	Redirect::handle('/');
 }
 
-if(!$site = Site::load()){
+$site = new Site();
+if($site->load()){
 	Site::load404();
 }
 
 //test
-
-
 $user = Session::get('user');
 
 Template::assign('user', $user);	
-Template::assign('prelaunch', ($site->status == 'prelaunch') ? true : false);
+Template::assign('prelaunch', ($site->site->status == 'prelaunch') ? true : false);
 
 
 /** 
@@ -55,13 +54,14 @@ if(Session::get('message')){
 /**
 	Page loading
 **/
+$siteClass = new Site();
 if(!empty($admin)){
-	Site::setAdmin();
+	$siteClass->setAdmin();
 	require_once('adminIndex.php');
 } else {
 
 	//force to signup page if not live
-	if($site->status != 'active' ){
+	if($thisSite->status != 'active' ){
 		$module = 'user';
 		$page = 'signup';
 	}
@@ -69,9 +69,11 @@ if(!empty($admin)){
 	if(empty($module)){
 		$module = 'home';
 	}
+	$module = new Module();
 
-	$page = Module::load($module, $page);
+	$page = $module->load($module, $page);
 			
+echo 1;
 	Template::assign('site', $site);
 	Template::assign('page', $page);
 	Template::assign('module', $module);
@@ -82,7 +84,6 @@ if(!empty($admin)){
 	} else {
 		Template::assign('$siteStyle', 'site-' . $site->shortname );
 	}
-
 	$smarty->display($module . '/' . $page . '.tpl');
 }
 
