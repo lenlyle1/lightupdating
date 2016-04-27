@@ -40,6 +40,7 @@ abstract class API
         header("Access-Control-Allow-Methods: *");
         header("Content-Type: application/json");
 
+        Debugger::debug($_REQUEST, 'API request');
         $this->args = explode('/', rtrim($request, '/'));
         $this->endpoint = array_shift($this->args);
 
@@ -79,6 +80,7 @@ abstract class API
     }
 
     public function processAPI() {
+        Debugger::debug('API_' . ucwords($this->endpoint));
         if (class_exists('API_' . ucwords($this->endpoint))) {
             return $this->_response($this->getResult());
         }

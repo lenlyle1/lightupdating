@@ -5,31 +5,31 @@ Class Module {
 
 	public function getDefaultPage($module)
 	{
-		global $siteClass;
+		global $site;
 
-		require_once(MODULE_PATH . '/' . (($siteClass->isAdmin()) ? 'admin/' : '') . $module . '/base.php');
+		require_once(MODULE_PATH . '/' . (($site->isAdmin()) ? 'admin/' : '') . $module . '/base.php');
 
 		return $defaultPage;
 	}
 
 	public function moduleExists($module)
 	{
-		global $siteClass;
+		global $site;
 
-echo $siteClass->isAdmin();
-		if(is_dir(MODULE_PATH . '/' . (($siteClass->isAdmin()) ? 'admin/' : '') . $module)){
+		$path =  MODULE_PATH . '/' . (($site->isAdmin()) ? 'admin/' : '') . $module;
+
+		if(is_dir(MODULE_PATH . '/' . (($site->isAdmin()) ? 'admin/' : '') . $module)){
 			return true;
 		}
 
-echo 1;
 		return false;
 	}
 
 	public function pageExists($module, $page)
 	{
 		global $site;
-
-		if(file_exists(MODULE_PATH . '/' . (($siteClass->isAdmin()) ? 'admin/' : '') . $module . '/' . $page . '.php')){
+		
+		if(file_exists(MODULE_PATH . '/' . (($site->isAdmin()) ? 'admin/' : '') . $module . '/' . $page . '.php')){
 			return true;
 		}
 
@@ -38,24 +38,20 @@ echo 1;
 
 	public function load($module, $page = null)
 	{
-		global $siteClass;
+		global $site;
 
-echo 1;
 		if(!$this->moduleExists($module)){
-			$page = $siteClass->load404();
+			$page = $site->load404();
 		}
 
-echo 12;
 		if(empty($page)){
 			$page = $this->getDefaultPage($module);
 		}
 
-echo 1;
 		if(!$this->pageExists($module, $page)){
 			$page = $site->load404();
 		}
 
-echo 1;
 		//Debugger::debug(MODULE_PATH . '/' . ((Site::isAdmin()) ? 'admin/' : '') . $module . '/' . $page . '.php');
 
 		if(file_exists(MODULE_PATH . '/' . (($site->isAdmin()) ? 'admin/' : '') . $module . '/' . $page . '.php')){

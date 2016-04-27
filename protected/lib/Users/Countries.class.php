@@ -4,6 +4,7 @@ Class Users_Countries {
 
 	public function load()
 	{
+		global $memc;
 		$sql = "SELECT *
 				FROM countries";
 

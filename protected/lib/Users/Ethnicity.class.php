@@ -4,6 +4,8 @@ Class Users_Ethnicity {
 
 	public function load()
 	{
+		global $memc;
+
 		$sql = "SELECT *
 				FROM ethnicities";
 

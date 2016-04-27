@@ -22,9 +22,6 @@ if(!empty($flush)){
 }
 
 $site = new Site();
-if($site->load()){
-	Site::load404();
-}
 
 //test
 $user = Session::get('user');
@@ -54,14 +51,13 @@ if(Session::get('message')){
 /**
 	Page loading
 **/
-$siteClass = new Site();
 if(!empty($admin)){
-	$siteClass->setAdmin();
+	$site->setAdmin();
 	require_once('adminIndex.php');
 } else {
 
 	//force to signup page if not live
-	if($thisSite->status != 'active' ){
+	if($site->site->status != 'active' ){
 		$module = 'user';
 		$page = 'signup';
 	}
@@ -69,21 +65,23 @@ if(!empty($admin)){
 	if(empty($module)){
 		$module = 'home';
 	}
-	$module = new Module();
 
-	$page = $module->load($module, $page);
-			
-echo 1;
-	Template::assign('site', $site);
+	$moduleClass = new Module();
+
+	$page = $moduleClass->load($module, $page);
+		
+	Template::assign('site', $site->site);
 	Template::assign('page', $page);
 	Template::assign('module', $module);
 
 	//swatch testing
-	if(!file_exists(PUBLIC_ROOT . '/assets/css/site-' . $site->shortname . '.css')){
-		Swatch::buildSwatch($site->swatch);
+	if(!file_exists(PUBLIC_ROOT . '/assets/css/site-' . $site->site->shortname . '.css')){
+		$swatch = new Swatch($site->site->swatch);
 	} else {
-		Template::assign('$siteStyle', 'site-' . $site->shortname );
+		Template::assign('$siteStyle', 'site-' . $site->site->shortname );
 	}
+
+
 	$smarty->display($module . '/' . $page . '.tpl');
 }
 

@@ -161,7 +161,7 @@ Class User
 	public function getByEmail($email)
 	{
 		global $db;
-		Debugger::debug($db);
+		//Debugger::debug($db);
 		$sql = "SELECT *
 				FROM users AS u
 				INNER JOIN user_emails AS e 
@@ -169,10 +169,6 @@ Class User
 				WHERE e.email = ?";
 
 		$user = $db->fetchOne($sql, array($email));
-
-		Debugger::debug($sql);
-		Debugger::debug($email);
-		Debugger::debug($user);
 
 		return $user;
 	}
@@ -221,6 +217,6 @@ Class User
 
 	public function encryptPassword($password)
 	{
-		return password_hash($password, PASSWORD_BCRYPT, $this->$passwordEncryptOptions);
+		return password_hash($password, PASSWORD_BCRYPT, $this->passwordEncryptOptions);
 	}
 }

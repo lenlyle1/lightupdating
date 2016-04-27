@@ -4,22 +4,21 @@
 
 Class Mysql{
 
-	private $db = null;
+	private static $db = null;
 
-	private $dbHost;
+	private static $dbHost;
 
-	private $dbName;
+	private static $dbName;
 
-	private $dbUser;
+	private static $dbUser;
 
-	private $dbPass;
+	private static $dbPass;
 
-	public function connect()
+	private static function connect()
 	{	
 		try{
-		    $this->db = new PDO('mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName . ';charset=utf8', $this->dbUser, $this->dbPass);
-		    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		    Debugger::debug($this);
+		    self::$db = new PDO('mysql:host=' . self::$dbHost . ';dbname=' . self::$dbName . ';charset=utf8', self::$dbUser, self::$dbPass);
+		    self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch(PDOException $e){
 		    Debugger::debug('error');
 		    Errors::handle($e, 'sqlerr');
@@ -28,7 +27,10 @@ Class Mysql{
 
 	public function getDB()
 	{
-		return $this->db;
+		if(empty(self::$db)){
+			self::connect();
+		}
+		return self::$db;
 	}
 
 	public function beginTransaction()
@@ -48,7 +50,8 @@ Class Mysql{
 
 	public function runQuery($sql, $params = null)
 	{
-		$stmt = $this->db->prepare($sql);
+		$db = self::getDB();
+		$stmt = $db->prepare($sql);
 
 		try{
 			$stmt->execute($params);
@@ -61,27 +64,27 @@ Class Mysql{
 
 	public function fetchAll($sql, $params = null)
 	{
-		$stmt = $this->runQuery($sql, $params);
+		$stmt = self::runQuery($sql, $params);
 
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public function fetchOne($sql, $params = null)
 	{
-		$stmt = $this->runQuery($sql, $params);
+		$stmt = self::runQuery($sql, $params);
 
 		return $stmt->fetch(PDO::FETCH_OBJ);
 	}
 
 	public function insertUpdate($sql, $params)
 	{
-		$stmt = $this->runQuery($sql, $params);
+		$stmt = self::runQuery($sql, $params);
 
-		return $this->db->lastInsertId();
+		return ( int ) self::$db->lastInsertId();
 	}
 
 	public function setvar($name, $value)
 	{
-		$this->$name = $value;
+		self::$$name = $value;
 	}
 }

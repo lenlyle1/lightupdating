@@ -2,10 +2,11 @@
 
 Class API_Rest extends API {
 	
-	public function __construct($request, $origin) 
+	public function __construct($request = null, $origin = null) 
 	{
         parent::__construct($request);
 
+        // if not local check credentials
 		if(!empty($_SESSION['localREST'])){
 	        $APIKey = new API_Key();
 
@@ -23,8 +24,9 @@ Class API_Rest extends API {
 
 	protected function getResult()
 	{
+		$results = array(false, 'No Response');
 		$className = 'API_' . ucwords($this->endpoint);
-
+		Debugger::debug($className, 'Class');
 		if(!class_exists($className)){
 			$result = 'Invalid endpoint';
 		} else if(!empty($this->verb)){
@@ -36,6 +38,10 @@ Class API_Rest extends API {
 			}
 		}
 
+		$this->success = false;	
+		if($result){
+			$this->success = $result;
+		}
 		return $this->makeResponse($result);
 	}
 
@@ -53,10 +59,13 @@ Class API_Rest extends API {
 
 	public function curlCall($endpoint, $curlPostData = null)
 	{
-		$curl = curl_init($endpoint);
+		$curl = curl_init(REST_URL . $endpoint);
 		
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		Debugger::debug('x','x', null, true );
+
+		Debugger::debug($endpoint,'$endpoint');
+		Debugger::debug($curlPostData,'$curlPostData');
+
 		if(!empty($curlPostData)){
 			Debugger::debug('adding post');
 			curl_setopt($curl, CURLOPT_POST, true);

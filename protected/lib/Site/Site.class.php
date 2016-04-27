@@ -8,6 +8,34 @@ Class Site {
 
 	public $site = null;
 
+	function __construct()
+	{
+		$this->load();
+	}
+
+	public function load($host = null)
+	{
+		global $memc;
+		
+		if(!$host){
+			$host = $_SERVER['HTTP_HOST'];
+		}
+
+		$sql = "SELECT s.*, h.hostname
+				FROM sites AS s
+				LEFT JOIN site_hosts as h
+					ON s.site_id = h.site_id
+				WHERE h.hostname = ?";
+
+		$this->site = $memc->fetch($sql, array($host), 'fetchOne', $this->cacheLifetime);
+
+		if(!$this->site){
+			$this->site = $this->load('www.lightupmylove.com');
+		}
+
+		return $this->site;
+	}
+
 	public function add($name, $shortname)
 	{
 		global $memc;
@@ -100,29 +128,6 @@ Class Site {
 				)";
 
 		$hostId = $db->insertUpdate($sql, array($siteId, $hostname));
-	}
-
-	public function load($host = null)
-	{
-		global $memc;
-		
-		if(!$host){
-			$host = $_SERVER['HTTP_HOST'];
-		}
-
-		$sql = "SELECT s.*, h.hostname
-				FROM sites AS s
-				LEFT JOIN site_hosts as h
-					ON s.site_id = h.site_id
-				WHERE h.hostname = ?";
-
-		$site = $memc->fetch($sql, array($host), 'fetchOne', $this->cacheLifetime);
-
-		if(!$site){
-			$this->site = $this->load('www.lightupmylove.com');
-		}
-
-		return $this->site;
 	}
 
 	public function loadById($siteId)

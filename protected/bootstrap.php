@@ -21,9 +21,11 @@ if(defined("IN_API")){
     define("SITE_ROOT", realpath('../'));
 }
 
-define("MODULE_PATH", realpath(SITE_ROOT . "/protected/modules/"));
-define("CLASS_PATH", realpath(SITE_ROOT . "/protected/lib/"));
-define("PUBLIC_ROOT", SITE_ROOT . '/public_html');
+/* paths */
+define("PROTECTED_ROOT", SITE_ROOT . "/protected/");
+define("MODULE_PATH", PROTECTED_ROOT . "modules/");
+define("PUBLIC_ROOT", SITE_ROOT . '/public_html/');
+define("CLASS_PATH", PROTECTED_ROOT . 'lib/');
 
 set_include_path(get_include_path() . PATH_SEPARATOR . realpath(SITE_ROOT . "/protected/"));
 
@@ -53,7 +55,6 @@ $db->setvar('dbHost', $settings->dbHost);
 $db->setvar('dbName', $settings->dbName);
 $db->setvar('dbUser', $settings->dbUser);
 $db->setvar('dbPass', $settings->dbPass);
-$db->connect();
 
 if(!defined("REST")){
     require_once SITE_ROOT . '/protected/lib/Smarty/Smarty.class.php';

@@ -16,6 +16,12 @@ Class Swatch {
 				.color-complement-4 { color: #553E00 }
 			";
 
+
+	function __construct($swatch = null)
+	{
+		$this->buildSwatch($swatch);
+	}
+
 	public function parseColors($swatchList)
 	{
 		preg_match_all('/(#[0-9A-Z]+)/', $swatchList, $colors);

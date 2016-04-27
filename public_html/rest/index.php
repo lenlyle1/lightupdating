@@ -16,9 +16,10 @@ if (!array_key_exists('HTTP_ORIGIN', $_SERVER)) {
     $_SERVER['HTTP_ORIGIN'] = $_SERVER['SERVER_NAME'];
 }
 try {
-    $API = new API_Rest($_REQUEST['request'], $_SERVER['HTTP_ORIGIN']);
-    echo $API->processAPI('');
+    $API = new API_Rest($_REQUEST['request']);
+    echo $API->processAPI();
 } catch (Exception $e) {
+	Debugger::debug($e);
     echo json_encode(Array('error' => $e->getMessage()));
 }
 /*
