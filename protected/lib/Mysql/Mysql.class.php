@@ -25,7 +25,7 @@ Class Mysql{
 		}
 	}
 
-	public function getDB()
+	public static function getDB()
 	{
 		if(empty(self::$db)){
 			self::connect();

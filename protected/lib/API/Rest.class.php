@@ -50,8 +50,8 @@ Class API_Rest extends API {
 		$response = array(
 			'endpoint' => $this->endpoint,
 			'action'   => $this->verb,
-			'result'   => $result,
-			'success'  => $this->success
+			'result'   => $result
+			//'success'  => $this->success
 		);
 
 		return $response;

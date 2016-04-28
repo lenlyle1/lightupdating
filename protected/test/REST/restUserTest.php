@@ -21,7 +21,9 @@ class restUserTest extends \PHPUnit_Framework_TestCase
 
 		$response = json_decode($responseJSON);
 
-		$this->assertInternalType('int', $userId);
+		Debugger::debug($response);
+
+		$this->assertTrue($response->result->success);
 	}
 	
 	public function providerTestCreate()
@@ -49,5 +51,18 @@ class restUserTest extends \PHPUnit_Framework_TestCase
 	public function testDeleteUser()
 	{
 		$endpoint = \API_Endpoints::get('user', 'wipe');
+	}
+
+
+	public static  function tearDownAfterClass()
+	{
+		$usernames = array('testtest1', 'testtest2');	
+
+		foreach($usernames as $username){
+			$sql = "DELETE FROM users
+					WHERE username = ?";
+
+			Mysql::runQuery($sql, array($username));
+		}
 	}
 }

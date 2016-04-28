@@ -8,8 +8,8 @@ Class User
 	protected $passwordEncryptOptions = array('cost' => 12);
 
 	public $statuses = array('ACTIVE' => 1,
-									'SUSPENDED' => 2,
-									'DELETED' => 3);
+							 'SUSPENDED' => 2,
+							 'DELETED' => 3);
 
 	public function create($username, $email, $password, $gender, $postcode)
 	{

@@ -1,6 +1,8 @@
 <?php
 
-Class API_User {
+Class API_User{
+
+
 
 	public function login($params = null)
 	{
@@ -14,19 +16,29 @@ Class API_User {
 
 	public function create($params = null)
 	{
-		$userId = false;
+		$result = new API_Response();
+
 		if(!empty($_POST)){
 			$user = new User();
 			$userId = $user->create($_POST['username'], $_POST['email'], $_POST['password'], $_POST['gender'], $_POST['postcode']);
 			//$valid = false;
 			//echo gettype($userId);
 			\Debugger::debug($userId, 'user id');
-			$result = 'User id ' . $userId . ' inserted';
+
+			if($userId){
+				$result->addItem('message', 'User id ' . $userId . ' inserted');
+				$result->addItem('userId', $userId);
+				$result->addItem('success', true);
+			} else {
+				$result->addItem('message', 'User id inserted');
+				$result->addItem('success', false);
+			}
 		} else {
-			$result = 'POST missing';
+			$result->addItem('message', 'POST missing');
+			$result->addItem('success', false);
 		}
 
-		return $userId;
+		return $result->getResult();
 	}
 
 	public function delete($params = null)
@@ -43,7 +55,7 @@ Class API_User {
 	{
 
 	}
-	
+
 	public function update($params = null)
 	{
 

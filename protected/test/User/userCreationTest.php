@@ -12,7 +12,7 @@ class UserCreationTest extends \PHPUnit_Framework_TestCase
 		$response = $user->create($username, $email, $password, $gender, $postcode);
 		//$valid = false;
 		echo gettype($response);
-		\Debugger::debug($response, 'user id');
+		\Debugger::debug($response, 'response');
 		$this->assertInternalType('int', $response);
 	}
 	
