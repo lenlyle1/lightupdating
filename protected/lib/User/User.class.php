@@ -11,11 +11,20 @@ Class User
 							 'SUSPENDED' => 2,
 							 'DELETED' => 3);
 
+	public $data;
+
+	public function __construct($email = null)
+	{
+		if($email){
+
+		}
+	}
+
 	public function create($username, $email, $password, $gender, $postcode)
 	{
 		global $db;
 		
-		if($this->validateUsername($username) && $this->validateEmail($email) && $this->validatePassword($password)){
+		if(User_Factory::validateUsername($username) && User_Factory::validateEmail($email) && User_Factory::validatePassword($password)){
 			// hash password
 			$password = $this->encryptPassword($password);
 
@@ -118,77 +127,7 @@ Class User
 
 	}
 
-	public function validatePassword($password, $minLength = 8, $maxlength = 20)
-	{
-		if(strlen($password) < $minLength){	
-			return false;
-		} else if(!preg_match('/^(?=.*\d)(?=.*[A-Z])[0-9A-Za-z!@#$%]{8,20}$/', $password)){
-			return false;
-		}
-
-		return true;
-	}
-
-	public function validateUsername($username, $minLength = 6, $maxlength = 16)
-	{
-		global $settings;
-
-		if(!preg_match('/^[a-zA-Z0-9_]+$/', $username) || strlen($username) < $minLength || strlen($username) > $maxlength){
-			Errors::setFormError('username', 'Username must be at least ' . $minLength . 
-			' characters long and must consist of letters and numbers and _ only.');
-			return false;
-		}
-		/*
-		foreach(split('_', $username) as $word){
-			if(in_array($word, $settings->swearwords)){
-				Errors::setFormError('username', 'That username is not allowed');
-				
-				return false;
-			}
-		}
-
-		
-		// check not already used
-		if($user = Users::fetchByUsername($username)){
-			Errors::setFormError('username', 'That username is already in use');
-			
-			return false;
-		}
-		*/
-		return true;
-	}
-
-	public function getByEmail($email)
-	{
-		global $db;
-		//Debugger::debug($db);
-		$sql = "SELECT *
-				FROM users AS u
-				INNER JOIN user_emails AS e 
-					ON u.user_id = e.user_id
-				WHERE e.email = ?";
-
-		$user = $db->fetchOne($sql, array($email));
-
-		return $user;
-	}
-
-	public function getById($id)
-	{
-		global $db;
-		
-		$sql = "SELECT *
-				FROM users AS u
-				LEFT JOIN user_emails AS e 
-					ON u.user_id = e.user_id
-				WHERE u.user_id = ?";
-
-		$user = $db->fetchOne($sql, array($id));
-
-		Debugger::debug($user);
-
-		return $user;
-	}
+	
 
 	public function checkSwearing($word)
 	{
@@ -205,11 +144,11 @@ Class User
 		}
 		// check not already used
 		
-		if($user = $this->getByEmail($email)){
-			Errors::setFormError('email', 'Email already in use');
+		// if($user = User_Factory::getByEmail($email)){
+		// 	Errors::setFormError('email', 'Email already in use');
 			
-			return false;
-		}
+		// 	return false;
+		// }
 	
 		return true;
 	}

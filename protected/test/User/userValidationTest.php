@@ -14,8 +14,7 @@ class UserValidationTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testValidateUsername($username, $expectedResponse)
 	{
-		$user = new User();
-		$valid = $user->validateUsername($username);
+		$valid = User_Factory::validateUsername($username);
 
 		$this->assertThis($valid, $expectedResponse);
 	}
@@ -38,7 +37,7 @@ class UserValidationTest extends \PHPUnit_Framework_TestCase
 	public function testValidateEmail($email, $expectedResponse)
 	{
 		$user = new User();
-		$valid = $user->validateEmail($email);
+		$valid = User_Factory::validateEmail($email);
 
 		$this->assertThis($valid, $expectedResponse);
 	}
@@ -61,7 +60,7 @@ class UserValidationTest extends \PHPUnit_Framework_TestCase
 	public function testValidatePassword($password, $expectedResponse)
 	{
 		$user = new User();
-		$valid = $user->validatePassword($password);
+		$valid = User_Factory::validatePassword($password);
 
 		$this->assertThis($valid, $expectedResponse);
 	}

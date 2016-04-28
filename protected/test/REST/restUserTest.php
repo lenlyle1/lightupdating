@@ -42,9 +42,6 @@ class restUserTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testGetByEmail($username, $email, $password, $gender, $postcode)
 	{		
-		$endpoint = \API_Endpoints::get('user', 'fetch_by_email');
-		$endpoint .= \API_Endpoints::append($endpoint, $email);
-
 		
 	}
 

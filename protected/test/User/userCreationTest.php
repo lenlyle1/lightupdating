@@ -41,23 +41,19 @@ class UserCreationTest extends \PHPUnit_Framework_TestCase
 	public function providerTestCreateFail()
 	{
 		return array(
-			array("testtest1", "lenlyle@gmail.com", "Scr0tums", "m", "94520"),
 			array("testtest2", "test2@lentest.com", "Scr0tum", "f", "94104")
 		);
 	}
 
 
-
-
 	public static  function tearDownAfterClass()
 	{
-		$usernames = array('testtest1', 'testtest2');	
+		$emails = array('test1@lentest.com');	
 
-		foreach($usernames as $username){
-			$sql = "DELETE FROM users
-					WHERE username = ?";
+		foreach($emails as $email){
+			$user = User_Factory::getByEmail($email);
 
-			Mysql::runQuery($sql, array($username));
+			User_Factory::wipeUser($user->user_id);
 		}
 	}
 

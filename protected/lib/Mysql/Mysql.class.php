@@ -53,6 +53,7 @@ Class Mysql{
 		$db = self::getDB();
 		$stmt = $db->prepare($sql);
 
+		Debugger::debug($sql, 'Running SQL');
 		try{
 			$stmt->execute($params);
 		} catch(PDOException $e){
