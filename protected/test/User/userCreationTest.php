@@ -41,7 +41,7 @@ class UserCreationTest extends \PHPUnit_Framework_TestCase
 	public function providerTestCreateFail()
 	{
 		return array(
-			array("testtest2", "test2@lentest.com", "Scr0tum", "f", "94104")
+			array("testtest2", "lenlyle@gmail.com", "Scr0tum", "f", "94104", "")
 		);
 	}
 

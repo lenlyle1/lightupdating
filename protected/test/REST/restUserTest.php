@@ -53,13 +53,12 @@ class restUserTest extends \PHPUnit_Framework_TestCase
 
 	public static  function tearDownAfterClass()
 	{
-		$usernames = array('testtest1', 'testtest2');	
+		$emails = array('test1@lentest.com');	
 
-		foreach($usernames as $username){
-			$sql = "DELETE FROM users
-					WHERE username = ?";
+		foreach($emails as $email){
+			$user = User_Factory::getByEmail($email);
 
-			Mysql::runQuery($sql, array($username));
+			User_Factory::wipeUser($user->user_id);
 		}
 	}
 }

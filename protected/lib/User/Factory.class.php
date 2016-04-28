@@ -35,11 +35,11 @@ Class User_Factory extends User {
 		return $user;
 	}
 
-
 	public static function wipeUser($userId)
 	{
 		global $db;
 
+		Debugger::debug('Wiping user ' . $userId);
 		$sql = "DELETE FROM users
 				WHERE user_id = ?";
 
