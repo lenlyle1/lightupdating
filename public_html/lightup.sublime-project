@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "/var/www/lightupmylove.com"
+		}
+	],
+	"settings":
+	{
+		"xdebug":
+		{
+			"url": "http://dev.lightupmylove.com/"
+		}
+	}
+}

@@ -42,3 +42,5 @@ $settings->swearwords = array(
 	'cunt',
 	'motherfucker'
 );
+
+$setting->restURL = 'http://www.lightupmylove.com';

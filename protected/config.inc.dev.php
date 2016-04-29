@@ -2,6 +2,9 @@
 
 $settings = new stdClass;
 
+$settings->appID = 'lightupmylove';
+$settings->privateKey = '978c881bf9b14873b1ec72cf5c30c695db5232e72d2d27a63bb04c2d24c70428';
+
 /*
 	Mysql
 */
@@ -45,3 +48,6 @@ $settings->swearwords = array(
 	'cunt',
 	'motherfucker'
 );
+
+
+$settings->restURL = 'http://dev.lightupmylove.com';

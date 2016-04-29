@@ -15,9 +15,17 @@ if( preg_match('/dev\./', $_SERVER['SERVER_NAME'])) {
 date_default_timezone_set('UTC');
 
 /* paths */
-define("SITE_ROOT", realpath('../'));
-define("MODULE_PATH", realpath(SITE_ROOT . "/protected/modules/"));
-define("PUBLIC_ROOT", SITE_ROOT . '/public_html');
+if(defined("IN_API")){
+    define("SITE_ROOT", realpath('../../'));
+} else {
+    define("SITE_ROOT", realpath('../'));
+}
+
+/* paths */
+define("PROTECTED_ROOT", SITE_ROOT . "/protected/");
+define("MODULE_PATH", PROTECTED_ROOT . "modules/");
+define("PUBLIC_ROOT", SITE_ROOT . '/public_html/');
+define("CLASS_PATH", PROTECTED_ROOT . 'lib/');
 
 set_include_path(get_include_path() . PATH_SEPARATOR . realpath(SITE_ROOT . "/protected/"));
 
@@ -37,25 +45,28 @@ if(IS_LIVE){
 }
 require_once $configFile;
 
-
 if(class_exists('Memcached')){
-    Memc::init($settings->memc_server, $settings->memc_port);
+    $memc = new Memc();
+    $memc->init($settings->memc_server, $settings->memc_port);
 }
 
-Mysql::setvar('dbHost', $settings->dbHost);
-Mysql::setvar('dbName', $settings->dbName);
-Mysql::setvar('dbUser', $settings->dbUser);
-Mysql::setvar('dbPass', $settings->dbPass);
+$db = new Mysql();
+$db->setvar('dbHost', $settings->dbHost);
+$db->setvar('dbName', $settings->dbName);
+$db->setvar('dbUser', $settings->dbUser);
+$db->setvar('dbPass', $settings->dbPass);
 
-require_once SITE_ROOT . '/protected/classes/Smarty/Smarty.class.php';
-$smarty = new Smarty();
+if(!defined("REST")){
+    require_once SITE_ROOT . '/protected/lib/Smarty/Smarty.class.php';
+    $smarty = new Smarty();
 
-$smarty->setTemplateDir(SITE_ROOT . '/protected/templates/');
-$smarty->setCompileDir(SITE_ROOT . '/protected/templates/templates_c/');
-$smarty->setConfigDir(SITE_ROOT . '/protected/templates/configs/');
-$smarty->setCacheDir(SITE_ROOT . '/protected/templates/cache/');
+    $smarty->setTemplateDir(SITE_ROOT . '/protected/templates/');
+    $smarty->setCompileDir(SITE_ROOT . '/protected/templates/templates_c/');
+    $smarty->setConfigDir(SITE_ROOT . '/protected/templates/configs/');
+    $smarty->setCacheDir(SITE_ROOT . '/protected/templates/cache/');
 
-$smarty->assign('isLive', IS_LIVE);
+    $smarty->assign('isLive', IS_LIVE);
+}
 
 $allowedModules = array(
     "index",
