@@ -1,0 +1,12 @@
+.user-brief {
+	width: 200px;
+	height: 200px;
+	float: left;
+	margin: 5px;
+	overflow: hidden;
+}
+
+.user-brief img {
+	width: 200px;
+	border-radius: 20px;
+}
