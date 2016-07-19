@@ -10,18 +10,25 @@
 
 {block name="js" append}
 	{embedjs script="/assets/js/search.js"}
+	{embedjs script="/assets/js/results.js"}
 {/block}
 		
 {block name="content"}
 	{initScript script='Search'}
+	{initScript script='Results'}
 
 	<div class="row">
-		Search Results
-
-		{foreach $results as $result}
-			<div class="user-brief">
-				{generate_resized_image img="$result->image" width="300"}
-			</div>
-		{/foreach}
+		<h1>Search Results</h1>
+		<div class="search-results">
+			{foreach $results as $result}
+				<div class="user-brief" data-id="{$result->id}">
+					{generate_resized_image img=$result->thumbnail width="200"}
+					<div class="username">
+						<div>{$result->username}</div>
+					</div>
+					<div class="details"></div>
+				</div>
+			{/foreach}
+		</div>
 	</div>
 {/block}

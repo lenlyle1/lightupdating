@@ -15,9 +15,7 @@ div {
 }
 .container {
 	padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    padding-left: 15px;v
 }
 .row { 
 	margin-right: 1rem;
@@ -29,6 +27,11 @@ div {
 .link-row {
 	display: inline-block;
 	width: 90%;
+}
+.search-results {
+	width: 700px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .center{
 	text-align: center;

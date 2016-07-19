@@ -26,12 +26,13 @@ Abstract Class Base
 
 	public function getById($id, $field = 'id', $mc = null, $mcLifetime = 20)
 	{
+		global $memc;
 		$sql = "SELECT *
 				FROM {$this->table}
-				WHERE id = ?";
+				WHERE `$field` = ?";
 
 		if ($mc){
-			$memc->fetch($sql, array($id), 'fetchOne', $mcLifetime);
+			$data = $memc->fetch($sql, array($id), 'fetchOne', $mcLifetime);
 		} else {
 			$data = Mysql::fetchOne($sql, array($id));
 		}
@@ -41,6 +42,7 @@ Abstract Class Base
 
 	function all($key, $value)
 	{
+		global $memc;
 		$sql = "SELECT *
 				FROM {$this->table}
 				WHERE {$field} = ?
@@ -67,7 +69,7 @@ Abstract Class Base
 
 			foreach($this->values as $field => $value){
 				$fieldCount++;	
-				$sql .= $field . (($fieldCount < (count((array) $this->values))) ? ", " : "");
+				$sql .= '`' . $field . '`' . (($fieldCount < (count((array) $this->values))) ? ", " : "");
 				$values[] = $value;
 			}
 

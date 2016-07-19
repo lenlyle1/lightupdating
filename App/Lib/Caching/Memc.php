@@ -70,7 +70,6 @@ Class Memc{
 	private static function buildKey($sql, $params = null)
 	{
 		$key = $sql;
-
 		if($params){
 			foreach($params as $k => $v){
 				$key .= $k . '|' . $v;
@@ -87,7 +86,7 @@ Class Memc{
 		if($key) {
 			$memc->delete($key);
 		} else {
-			$memc->flush($key);
+			$memc->flush();
 		}
 	}
 }

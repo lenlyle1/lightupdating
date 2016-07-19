@@ -10,7 +10,7 @@ Class RunSearch
 	{
 		global $memc;
 
-		$sql = "SELECT u.id, u.username, i.image_url as image
+		$sql = "SELECT u.id, u.username, i.image_url as image, i.thumbnail
 				FROM users AS u
 				LEFT JOIN user_images i
 					ON u.id = i.user_id

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-06-20 21:35:48
+/* Smarty version 3.1.29, created on 2016-07-14 17:06:22
   from "/var/www/lightupmylove.com/App/Views/base.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_576861b4e5b492_13891946',
+  'unifunc' => 'content_5787c68e6a6c46_23770237',
   'file_dependency' => 
   array (
     'a70450aa3185ede4211114c8a67fb2bd455ec8e6' => 
     array (
       0 => '/var/www/lightupmylove.com/App/Views/base.tpl',
-      1 => 1466458290,
+      1 => 1466972347,
       2 => 'file',
     ),
   ),
@@ -22,17 +22,17 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:footer-menu.tpl' => 1,
   ),
 ),false)) {
-function content_576861b4e5b492_13891946 ($_smarty_tpl) {
-if (!is_callable('smarty_function_embedcss')) require_once '/var/www/lightupmylove.com/App/Lib/Templating/Smarty/plugins/function.embedcss.php';
-if (!is_callable('smarty_function_embedjs')) require_once '/var/www/lightupmylove.com/App/Lib/Templating/Smarty/plugins/function.embedjs.php';
-if (!is_callable('smarty_function_compile_stack')) require_once '/var/www/lightupmylove.com/App/Lib/Templating/Smarty/plugins/function.compile_stack.php';
+function content_5787c68e6a6c46_23770237 ($_smarty_tpl) {
+if (!is_callable('smarty_function_embedcss')) require_once '/var/www/lightupmylove.com/App/SmartyPlugins/function.embedcss.php';
+if (!is_callable('smarty_function_embedjs')) require_once '/var/www/lightupmylove.com/App/SmartyPlugins/function.embedjs.php';
+if (!is_callable('smarty_function_compile_stack')) require_once '/var/www/lightupmylove.com/App/SmartyPlugins/function.compile_stack.php';
 $_smarty_tpl->ext->_inheritance->init($_smarty_tpl, false);
 ?>
 <html>
 	<head>
 		<title><?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "title", array (
-  0 => 'block_410135836576861b4e21b47_68109909',
+  0 => 'block_11712561935787c68e64dce0_71500361',
   1 => false,
   3 => 0,
   2 => 0,
@@ -45,7 +45,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "title", array (
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="description" content="<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_description", array (
-  0 => 'block_1853902550576861b4e26a04_95861190',
+  0 => 'block_19057047765787c68e65a791_03471257',
   1 => false,
   3 => 0,
   2 => 0,
@@ -54,7 +54,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_description
 " />
 		<meta name="keyword" content="<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_keyword", array (
-  0 => 'block_156126164576861b4e29a38_57669549',
+  0 => 'block_4164888645787c68e6644c8_99795473',
   1 => false,
   3 => 0,
   2 => 0,
@@ -64,7 +64,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_keyword", a
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "css", array (
-  0 => 'block_100409690576861b4e2cc51_86465001',
+  0 => 'block_17239390835787c68e66d882_32221459',
   1 => false,
   3 => 0,
   2 => 0,
@@ -78,7 +78,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "css", array (
 
 		<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
-  0 => 'block_1937992557576861b4e3f853_87077378',
+  0 => 'block_17737363325787c68e689647_33525437',
   1 => false,
   3 => 0,
   2 => 0,
@@ -139,7 +139,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
 		<div class="contentHolder main-body">
 			<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "content", array (
-  0 => 'block_2024833023576861b4e52920_11655413',
+  0 => 'block_8418214935787c68e69e039_75984270',
   1 => false,
   3 => 0,
   2 => 0,
@@ -191,22 +191,22 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "content", array 
 	</body>
 </html><?php }
 /* {block 'title'}  file:base.tpl */
-function block_410135836576861b4e21b47_68109909($_smarty_tpl, $_blockParentStack) {
+function block_11712561935787c68e64dce0_71500361($_smarty_tpl, $_blockParentStack) {
 echo ucwords($_smarty_tpl->tpl_vars['site']->value->name);
 }
 /* {/block 'title'} */
 /* {block 'meta_description'}  file:base.tpl */
-function block_1853902550576861b4e26a04_95861190($_smarty_tpl, $_blockParentStack) {
+function block_19057047765787c68e65a791_03471257($_smarty_tpl, $_blockParentStack) {
 echo $_smarty_tpl->tpl_vars['site']->value->description;
 }
 /* {/block 'meta_description'} */
 /* {block 'meta_keyword'}  file:base.tpl */
-function block_156126164576861b4e29a38_57669549($_smarty_tpl, $_blockParentStack) {
+function block_4164888645787c68e6644c8_99795473($_smarty_tpl, $_blockParentStack) {
 echo $_smarty_tpl->tpl_vars['site']->value->keywords;
 }
 /* {/block 'meta_keyword'} */
 /* {block 'css'}  file:base.tpl */
-function block_100409690576861b4e2cc51_86465001($_smarty_tpl, $_blockParentStack) {
+function block_17239390835787c68e66d882_32221459($_smarty_tpl, $_blockParentStack) {
 ?>
 
 			<?php echo smarty_function_embedcss(array('cssfile'=>"/assets/css/geometry.css"),$_smarty_tpl);?>
@@ -234,7 +234,7 @@ function block_100409690576861b4e2cc51_86465001($_smarty_tpl, $_blockParentStack
 }
 /* {/block 'css'} */
 /* {block 'js'}  file:base.tpl */
-function block_1937992557576861b4e3f853_87077378($_smarty_tpl, $_blockParentStack) {
+function block_17737363325787c68e689647_33525437($_smarty_tpl, $_blockParentStack) {
 ?>
 
 			<?php echo smarty_function_embedjs(array('script'=>"/assets/js/jquery-2.1.4.min.js"),$_smarty_tpl);?>
@@ -247,7 +247,7 @@ function block_1937992557576861b4e3f853_87077378($_smarty_tpl, $_blockParentStac
 }
 /* {/block 'js'} */
 /* {block 'content'}  file:base.tpl */
-function block_2024833023576861b4e52920_11655413($_smarty_tpl, $_blockParentStack) {
+function block_8418214935787c68e69e039_75984270($_smarty_tpl, $_blockParentStack) {
 ?>
 
 

@@ -2,10 +2,34 @@
 
 namespace Controllers;
 
+use Lib\User\UserOperations as UserOp;
+use Lib\Utils\Template;
+
 Class UserController 
 {
-	function showDetails()
+	function showDetails($vars)
 	{
-		echo 'userDetails';
+		$user = new UserOp();
+		$userDetails = $user->load($vars['id']);
+
+		Template::assign('user', $userDetails);
+		return 'user/view';
 	}
+
+	function listFavourites()
+	{
+
+	}
+
+	function addFavourite()
+	{
+
+	}
+
+	function deleteFavourite()
+	{
+
+	}
+
+
 }

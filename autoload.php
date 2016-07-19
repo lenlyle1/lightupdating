@@ -9,7 +9,7 @@ class Autoloader
 {
     static public function loader($className) 
     {
-        if(strstr($className, 'Smarty')){
+        if(strstr($className, 'Faker\\Provider')){
             return false;
         }
         $filename = "/App/" . str_replace('\\', '/', $className) . ".php";

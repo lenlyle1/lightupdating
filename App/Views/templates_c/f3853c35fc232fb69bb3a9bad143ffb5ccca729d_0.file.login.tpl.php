@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-06-20 18:45:30
+/* Smarty version 3.1.29, created on 2016-07-17 12:34:11
   from "/var/www/lightupmylove.com/App/Views/user/login.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_576839ca314643_86417585',
+  'unifunc' => 'content_578b7b431d02c6_08558552',
   'file_dependency' => 
   array (
     'f3853c35fc232fb69bb3a9bad143ffb5ccca729d' => 
     array (
       0 => '/var/www/lightupmylove.com/App/Views/user/login.tpl',
-      1 => 1454513980,
+      1 => 1466972347,
       2 => 'file',
     ),
   ),
@@ -21,14 +21,14 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:user/loginForm.tpl' => 1,
   ),
 ),false)) {
-function content_576839ca314643_86417585 ($_smarty_tpl) {
+function content_578b7b431d02c6_08558552 ($_smarty_tpl) {
 $_smarty_tpl->ext->_inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "title", array (
-  0 => 'block_1613044966576839ca303bc2_57840225',
+  0 => 'block_761628357578b7b431c0864_12688115',
   1 => false,
   3 => 0,
   2 => 0,
@@ -39,7 +39,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "title", array (
 
 <?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
-  0 => 'block_1870766049576839ca30abf4_54489299',
+  0 => 'block_341695887578b7b431c43b2_75729757',
   1 => false,
   3 => 0,
   2 => 0,
@@ -50,7 +50,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
 
 <?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "content", array (
-  0 => 'block_681256897576839ca30f6d7_85759204',
+  0 => 'block_159270947578b7b431ca6e4_96257077',
   1 => false,
   3 => 0,
   2 => 0,
@@ -59,13 +59,13 @@ $_smarty_tpl->ext->_inheritance->endChild($_smarty_tpl);
 $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:base.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'title'}  file:user/login.tpl */
-function block_1613044966576839ca303bc2_57840225($_smarty_tpl, $_blockParentStack) {
+function block_761628357578b7b431c0864_12688115($_smarty_tpl, $_blockParentStack) {
 ?>
  - Sign up<?php
 }
 /* {/block 'title'} */
 /* {block 'js'}  file:user/login.tpl */
-function block_1870766049576839ca30abf4_54489299($_smarty_tpl, $_blockParentStack) {
+function block_341695887578b7b431c43b2_75729757($_smarty_tpl, $_blockParentStack) {
 ?>
 
 	<?php echo '<script'; ?>
@@ -93,7 +93,7 @@ function block_1870766049576839ca30abf4_54489299($_smarty_tpl, $_blockParentStac
 }
 /* {/block 'js'} */
 /* {block 'content'}  file:user/login.tpl */
-function block_681256897576839ca30f6d7_85759204($_smarty_tpl, $_blockParentStack) {
+function block_159270947578b7b431ca6e4_96257077($_smarty_tpl, $_blockParentStack) {
 ?>
 
 

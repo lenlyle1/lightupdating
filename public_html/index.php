@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Lib\Utils\Timer;
 use Lib\Utils\Session;
 use Lib\Utils\Template;
@@ -8,7 +10,10 @@ use Lib\Utils\Template;
 	Load the bootstrap
 **/
 require_once "../bootstrap.php";
-
+/**
+	Start timer
+**/
+Timer::start();
 /*
 	Load the current site
 */
@@ -30,11 +35,6 @@ if(!file_exists(PUBLIC_ROOT . '/assets/css/site-' . $site->shortname . '.css')){
 	Routing
 */
 require_once(SITE_ROOT . "/App/Router/routing.php");
-
-/**
-	Start timer
-**/
-Timer::start();
 
 /**
     Flush memcache if required

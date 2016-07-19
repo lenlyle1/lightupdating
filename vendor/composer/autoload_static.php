@@ -27,6 +27,11 @@ class ComposerStaticInit108c53d8ded24fa7cd4f2ebe5ad50588
             'Symfony\\Component\\DomCrawler\\' => 29,
             'Symfony\\Component\\CssSelector\\' => 30,
         ),
+        'M' => 
+        array (
+            'MatthiasMullie\\PathConverter\\' => 29,
+            'MatthiasMullie\\Minify\\' => 22,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -63,6 +68,14 @@ class ComposerStaticInit108c53d8ded24fa7cd4f2ebe5ad50588
         'Symfony\\Component\\CssSelector\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/css-selector',
+        ),
+        'MatthiasMullie\\PathConverter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/matthiasmullie/path-converter/src',
+        ),
+        'MatthiasMullie\\Minify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/matthiasmullie/minify/src',
         ),
         'Faker\\' => 
         array (

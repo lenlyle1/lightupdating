@@ -1,16 +1,17 @@
 <?php
 
-require_once "../protected/bootstrap.php";
+require_once "../bootstrap.php";
+
+use \Lib\Utils\Debugger;
+use \Lib\ImageTools\Image;
 
 $pathBits = explode('/', $_GET['img']);
-
-Debugger::debug($_GET, 'GET');
-
+dump($_GET);
 $image = array_pop($pathBits);
 $imgBits = explode('_', $image);
 
-$tmp = array_pop($pathBits);
-$tmp = array_pop($pathBits);
+dump($pathBits);
+$pathBits[2] = 'original';
 
 $sizeBit = array_pop($imgBits);
 
@@ -20,13 +21,17 @@ $width = $details[0];
 
 $ext = $details[1];
 
-$imgName = '/' . implode('/', $pathBits) . '/' . implode('_', $imgBits) . '.' . $ext;
+$imgName = 'assets/' . implode('/', $pathBits) . '/' . implode('_', $imgBits) . '.' . $ext;
+//dump($imgName);
+$imageResizer = new Image(PUBLIC_ROOT . $imgName);
+$testKey = $imageResizer->createKey($imgBits[0] . '.jpg', $width);
+//Debugger::debug($testKey);
 
-$testKey = Image::createKey($imgName, $width);
-Debugger::debug($_GET, 'GET');
 if($testKey != $_GET['key']){
 	Debugger::debug('BAD KEY');
 } else {
 	Debugger::debug('resizing');
-	Image_Resizer::resize($imgName, $width, $_GET['img']);
+	$imageResizer->resize($imgName, $width, PUBLIC_ROOT . 'assets/' . $_GET['img']);
 }
+
+$imageResizer->output();

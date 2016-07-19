@@ -2,7 +2,8 @@
 
 use Lib\Utils\Template;
 
-$router = new AltoRouter();
+$router = new Router\LightRouter();
+//$router = new AltoRouter();
 
 require_once(SITE_ROOT . '/App/Router/pageRoutes.php');
 require_once(SITE_ROOT . '/App/Router/authRoutes.php');
@@ -10,6 +11,7 @@ require_once(SITE_ROOT . '/App/Router/userRoutes.php');
 require_once(SITE_ROOT . '/App/Router/searchRoutes.php');
 require_once(SITE_ROOT . '/App/Router/seedRoutes.php');
 require_once(SITE_ROOT . '/App/Router/testRoutes.php');
+require_once(SITE_ROOT . '/App/Router/adminRoutes.php');
 
 $match = $router->match();
 

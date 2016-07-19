@@ -1,7 +1,7 @@
 <style>
 
 body {
-	background-color: {$swatch7};
+	/*background-color: {$swatch7};*/
 }
 header, footer {
 	background-color: {$swatch1};
@@ -23,6 +23,10 @@ header, footer {
 }
 label {
 	color: {$swatch4};
+}
+
+.user-brief > .username {
+	background-color: {$swatch3};
 }
 
 </style>

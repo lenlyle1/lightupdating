@@ -24,7 +24,7 @@ Class Sites extends Base
 				LEFT JOIN site_hosts as h
 					ON s.id = h.site_id
 				WHERE h.hostname = ?";
-
+		$memc->flush();		
 		$this->site = $memc->fetch($sql, array($host), 'fetchOne', $settings->cacheTimes['sites']);
 		if(!$this->site){
 			$this->site = $this->load('www.lightupmylove.com');

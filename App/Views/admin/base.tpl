@@ -50,7 +50,6 @@
 				<div class="left">
 					<div class="logo">Lo<img src="/assets/images/site-images/heart.png" id="logo-heart" />e</div>
 				</div>
-				{if $user}
 				<div class="left">
 					<ul class="hori-menu">
 						<li><a class="btn" href="/admin/users">Users</a></li>
@@ -63,22 +62,21 @@
 				<div class="right" style="margin-top: 15px;">
 					<a class="btn btn-blue" href="/admin/users/logout">Logout</a>
 				</div>
-				{/if}
 			</div>
 		</header>
 		<div class="contentHolder main-body">
 			<div class="row">
-				<h1>{block name="heading"}
+				<h1>{*block name="heading"}
 						<a href="/admin/{$module}">{ucwords($module)}</a>
 						{if $module != $page}
 							 - {str_replace('-', ' ', ucwords($page))}
 						{/if}
-					{/block}</h1>
+					{/block*}</h1>
 			</div>
 
 
 			<div class="row">
-				<div class="error errorBox" id="errorBox">{if $error}{$error}{/if}</div>
+				<div class="error errorBox" id="errorBox">{if isset($error)}{$error}{/if}</div>
 				{block name="content"}
 			</div>
 
