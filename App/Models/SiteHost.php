@@ -2,7 +2,7 @@
 
 namespace Models;
 
-Class SiteHost extends Base
+Class  extends Base
 {
 	public $table = 'site_hosts';
 }

@@ -40,7 +40,7 @@ Class Users
 			Debugger::debug('email seeded');
 
 			$userImages = new UserImages($gender);
-			//$userImages->seedImage($userModel);
+			$userImages->seedImage($userModel);
 
 			$userProfile = new UserProfile($gender);
 			$userProfile->seed($userModel);
