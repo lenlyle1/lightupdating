@@ -1,3 +1,6 @@
+/**
+	Overlay generating class
+**/
 function Overlay(_options){
 
 	var self = this, overlay;
