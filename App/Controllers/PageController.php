@@ -9,16 +9,6 @@ Class PageController
 		return 'pages/home';
 	}
 
-	function login()
-	{
-		return 'user/login';
-	}
-
-	function signup()
-	{
-		return 'user/signup';
-	}
-
 	function faq()
 	{
 		

@@ -37,14 +37,15 @@ var Signup = {
 		
 		if(valid){
 			Log.write('submitting');
-			var url = '/user/signup?ajax=true';
+			var url = '/user/signup';
 
 			$.ajax({
 				type: "POST",
-				url: url + '&validate=true',
+				url: url,
 				data: $("#" + form).serializeArray(),
 				dataType: "json",
 				success: function(response){
+					Log.write('done');
 					if(response.success == false){
 						$.each(response.errors, function(i, value){
 							Form.showError(form, i, value);

@@ -2,7 +2,9 @@
 	width: 4em;
 }
 header .logo {
+	color: #fff;
 	height: 30px;
+	margin-top: 5px;
 	margin-left: 10px;
 }
 

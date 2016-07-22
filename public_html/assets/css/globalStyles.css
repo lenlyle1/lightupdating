@@ -23,6 +23,7 @@ form .error{
 	cursor: pointer;
 	padding: .5em;
 	margin: 0px;
+	color: #fff;
 	text-decoration: none;
 }
 .btn-red{

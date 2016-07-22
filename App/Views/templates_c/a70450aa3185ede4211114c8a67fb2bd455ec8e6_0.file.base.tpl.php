@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-07-14 17:06:22
+/* Smarty version 3.1.29, created on 2016-07-22 20:03:23
   from "/var/www/lightupmylove.com/App/Views/base.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5787c68e6a6c46_23770237',
+  'unifunc' => 'content_57927c0b97a021_62656536',
   'file_dependency' => 
   array (
     'a70450aa3185ede4211114c8a67fb2bd455ec8e6' => 
     array (
       0 => '/var/www/lightupmylove.com/App/Views/base.tpl',
-      1 => 1466972347,
+      1 => 1469217799,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,8 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:footer-menu.tpl' => 1,
   ),
 ),false)) {
-function content_5787c68e6a6c46_23770237 ($_smarty_tpl) {
+function content_57927c0b97a021_62656536 ($_smarty_tpl) {
 if (!is_callable('smarty_function_embedcss')) require_once '/var/www/lightupmylove.com/App/SmartyPlugins/function.embedcss.php';
-if (!is_callable('smarty_function_embedjs')) require_once '/var/www/lightupmylove.com/App/SmartyPlugins/function.embedjs.php';
 if (!is_callable('smarty_function_compile_stack')) require_once '/var/www/lightupmylove.com/App/SmartyPlugins/function.compile_stack.php';
 $_smarty_tpl->ext->_inheritance->init($_smarty_tpl, false);
 ?>
@@ -32,7 +31,7 @@ $_smarty_tpl->ext->_inheritance->init($_smarty_tpl, false);
 	<head>
 		<title><?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "title", array (
-  0 => 'block_11712561935787c68e64dce0_71500361',
+  0 => 'block_174240021757927c0b92f8a3_32601746',
   1 => false,
   3 => 0,
   2 => 0,
@@ -45,7 +44,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "title", array (
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="description" content="<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_description", array (
-  0 => 'block_19057047765787c68e65a791_03471257',
+  0 => 'block_206565194357927c0b9357a8_68468165',
   1 => false,
   3 => 0,
   2 => 0,
@@ -54,7 +53,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_description
 " />
 		<meta name="keyword" content="<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_keyword", array (
-  0 => 'block_4164888645787c68e6644c8_99795473',
+  0 => 'block_67792181557927c0b938f07_97574434',
   1 => false,
   3 => 0,
   2 => 0,
@@ -62,9 +61,12 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "meta_keyword", a
 ?>
 " />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<?php echo '<script'; ?>
+ src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"><?php echo '</script'; ?>
+>
 		<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "css", array (
-  0 => 'block_17239390835787c68e66d882_32221459',
+  0 => 'block_134165036257927c0b93d2c1_77093475',
   1 => false,
   3 => 0,
   2 => 0,
@@ -78,7 +80,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "css", array (
 
 		<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
-  0 => 'block_17737363325787c68e689647_33525437',
+  0 => 'block_177745077957927c0b95cb08_19141509',
   1 => false,
   3 => 0,
   2 => 0,
@@ -97,15 +99,8 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
 
 		<?php echo '<script'; ?>
 >
-			$(document).ready(function(){
-				<?php if (!$_smarty_tpl->tpl_vars['isLive']->value) {?>
-					Log.output = true;
-				<?php }?>
-			});
+			
 		<?php echo '</script'; ?>
->
-		<?php echo '<script'; ?>
- src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"><?php echo '</script'; ?>
 >
 	</head>
 	<body>
@@ -126,7 +121,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
 						<a class="btn btn-head" href="/user/logout">Logout</a>
 					</div>
 				<?php } else { ?>
-					<div class="right" >
+					<div class="right top-signin" >
 						<a class="btn btn-head" href="/user/signup">Signup</a>
 						<?php if ($_smarty_tpl->tpl_vars['site']->value->status != "prelaunch") {?>
 							or
@@ -139,7 +134,7 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "js", array (
 		<div class="contentHolder main-body">
 			<?php 
 $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "content", array (
-  0 => 'block_8418214935787c68e69e039_75984270',
+  0 => 'block_120495043957927c0b970d89_43322424',
   1 => false,
   3 => 0,
   2 => 0,
@@ -191,22 +186,22 @@ $_smarty_tpl->ext->_inheritance->processBlock($_smarty_tpl, 0, "content", array 
 	</body>
 </html><?php }
 /* {block 'title'}  file:base.tpl */
-function block_11712561935787c68e64dce0_71500361($_smarty_tpl, $_blockParentStack) {
+function block_174240021757927c0b92f8a3_32601746($_smarty_tpl, $_blockParentStack) {
 echo ucwords($_smarty_tpl->tpl_vars['site']->value->name);
 }
 /* {/block 'title'} */
 /* {block 'meta_description'}  file:base.tpl */
-function block_19057047765787c68e65a791_03471257($_smarty_tpl, $_blockParentStack) {
+function block_206565194357927c0b9357a8_68468165($_smarty_tpl, $_blockParentStack) {
 echo $_smarty_tpl->tpl_vars['site']->value->description;
 }
 /* {/block 'meta_description'} */
 /* {block 'meta_keyword'}  file:base.tpl */
-function block_4164888645787c68e6644c8_99795473($_smarty_tpl, $_blockParentStack) {
+function block_67792181557927c0b938f07_97574434($_smarty_tpl, $_blockParentStack) {
 echo $_smarty_tpl->tpl_vars['site']->value->keywords;
 }
 /* {/block 'meta_keyword'} */
 /* {block 'css'}  file:base.tpl */
-function block_17239390835787c68e66d882_32221459($_smarty_tpl, $_blockParentStack) {
+function block_134165036257927c0b93d2c1_77093475($_smarty_tpl, $_blockParentStack) {
 ?>
 
 			<?php echo smarty_function_embedcss(array('cssfile'=>"/assets/css/geometry.css"),$_smarty_tpl);?>
@@ -234,20 +229,15 @@ function block_17239390835787c68e66d882_32221459($_smarty_tpl, $_blockParentStac
 }
 /* {/block 'css'} */
 /* {block 'js'}  file:base.tpl */
-function block_17737363325787c68e689647_33525437($_smarty_tpl, $_blockParentStack) {
+function block_177745077957927c0b95cb08_19141509($_smarty_tpl, $_blockParentStack) {
 ?>
 
-			<?php echo smarty_function_embedjs(array('script'=>"/assets/js/jquery-2.1.4.min.js"),$_smarty_tpl);?>
-
-			<?php echo smarty_function_embedjs(array('script'=>"/assets/js/logging.js"),$_smarty_tpl);?>
-
-			<?php echo smarty_function_embedjs(array('script'=>"/assets/js/login.js"),$_smarty_tpl);?>
 
 		<?php
 }
 /* {/block 'js'} */
 /* {block 'content'}  file:base.tpl */
-function block_8418214935787c68e69e039_75984270($_smarty_tpl, $_blockParentStack) {
+function block_120495043957927c0b970d89_43322424($_smarty_tpl, $_blockParentStack) {
 ?>
 
 

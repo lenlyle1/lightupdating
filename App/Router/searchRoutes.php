@@ -4,7 +4,7 @@
 /*
 	Search form
 */
-$router->map( 'GET', '/search/?', 'SearchController#search');
+$router->map( 'GET', '/search/?', 'SearchController#results');
 
 /*
 	Advanced Search form

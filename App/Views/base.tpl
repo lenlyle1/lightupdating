@@ -8,6 +8,7 @@
 		<meta name="description" content="{block name="meta_description"}{$site->description}{/block}" />
 		<meta name="keyword" content="{block name="meta_keyword"}{$site->keywords}{/block}" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 		{block name="css"}
 			{embedcss cssfile="/assets/css/geometry.css"}
 			{embedcss cssfile="/assets/css/responsive.css"}
@@ -26,9 +27,7 @@
 		{include file="site-css.tpl"}
 
 		{block name="js"}
-			{embedjs script="/assets/js/jquery-2.1.4.min.js"}
-			{embedjs script="/assets/js/logging.js"}
-			{embedjs script="/assets/js/login.js"}
+
 		{/block}
 		
 		{compile_stack}
@@ -38,13 +37,12 @@
 		{/if}
 
 		<script>
-			$(document).ready(function(){
+			{** $(document).ready(function(){
 				{if !$isLive}
 					Log.output = true;
 				{/if}
-			});
+			}); **}
 		</script>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	</head>
 	<body>
 		<header>
@@ -61,7 +59,7 @@
 						<a class="btn btn-head" href="/user/logout">Logout</a>
 					</div>
 				{else }
-					<div class="right" >
+					<div class="right top-signin" >
 						<a class="btn btn-head" href="/user/signup">Signup</a>
 						{if $site->status != "prelaunch"}
 							or
