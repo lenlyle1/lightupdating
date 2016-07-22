@@ -45,4 +45,8 @@ Lib/Views/templates_c/*
 # combined assets #
 public_html/assets/combined/*
 
+# configs 
+Lib/Configs/*
+
+
 
