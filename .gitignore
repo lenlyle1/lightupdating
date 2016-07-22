@@ -40,9 +40,9 @@ Thumbs.db
 
 
 # smarty compiled #
-/**/Lib/Views/templates_c/*
+Lib/Views/templates_c/*
 
 # combined assets #
-/**/public_html/assets/combined/*
+public_html/assets/combined/*
 
 
