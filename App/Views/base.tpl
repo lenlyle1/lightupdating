@@ -1,4 +1,4 @@
-<html>
+<html lang="en" ng-app="lightupApp">
 	<head>
 		<title>{block name="title"}{ucwords($site->name)}{/block}</title>
 
@@ -8,7 +8,7 @@
 		<meta name="description" content="{block name="meta_description"}{$site->description}{/block}" />
 		<meta name="keyword" content="{block name="meta_keyword"}{$site->keywords}{/block}" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    	<script src="bower_components/angular/angular.js"></script>
 		{block name="css"}
 			{embedcss cssfile="/assets/css/geometry.css"}
 			{embedcss cssfile="/assets/css/responsive.css"}
@@ -48,7 +48,11 @@
 		<header>
 			<div class="contentHolder">
 				<div class="left">
-					<div class="logo"><span class="site-name">{ucwords($site->shortname)}</span> up my Love</div>
+					<div class="logo">
+						<a href="/">
+							<span class="site-name">{ucwords($site->shortname)}</span> up my Love
+						</a>
+					</div>
 
 				</div>
 				{if !empty($user)}
@@ -59,6 +63,9 @@
 						<a class="btn btn-head" href="/user/logout">Logout</a>
 					</div>
 				{else }
+					<div class="left">
+						{include file="top-menu.tpl"}
+					</div>
 					<div class="right top-signin" >
 						<a class="btn btn-head" href="/user/signup">Signup</a>
 						{if $site->status != "prelaunch"}

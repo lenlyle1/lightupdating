@@ -44,6 +44,8 @@ Lib/Views/templates_c/*
 
 # combined assets #
 public_html/assets/combined/*
+public_html/assets/images/*
+public_html/assets/images/resized/*
 
 # configs 
 Lib/Configs/*
