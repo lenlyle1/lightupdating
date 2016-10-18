@@ -2,17 +2,23 @@
 /**
  * Bootstrap file
  */
+use Lib\Utils\Debugger;
 
 /* timezone */
 date_default_timezone_set('UTC');
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
-if( preg_match('/dev\./', $_SERVER['SERVER_NAME'])) {
-    define("IS_LIVE", false);
+// echo $_SERVER['SERVER_NAME'];
+// echo preg_match('/local/', $_SERVER['SERVER_NAME']);
+
+if( preg_match('/dev\./', $_SERVER['SERVER_NAME']) || 
+    preg_match('/local/', $_SERVER['SERVER_NAME'])) {
+        define("IS_LIVE", false);
 } else {
     define("IS_LIVE", true);
 }
+
 
 /* paths */
 if(defined("IN_API")){
@@ -39,6 +45,8 @@ if(IS_LIVE){
     $configFile = 'Configs/dev.php';
 }
 require $configFile;
+
+Debugger::debug('Running in ' . ((IS_LIVE) ? 'live' : 'dev') . ' mode');
 
 // convert to static class
 if(class_exists('Memcached')){

@@ -2,13 +2,18 @@
 
 $settings = new stdClass;
 
+$settings->appID = 'lightupmylove';
+$settings->privateKey = '978c881bf9b14873b1ec72cf5c30c695db5232e72d2d27a63bb04c2d24c70428';
+
 /*
 	Mysql
 */
 $settings->dbHost = 'localhost';
 $settings->dbName = 'lightupmylove';
-$settings->dbUser = 'root';
-$settings->dbPass = 'Scr0tums';
+//$settings->dbHostUsers = 'localhost';
+//$settings->dbNameUsers = 'users';	
+$settings->dbUser = 'site_admin';
+$settings->dbPass = 'B0ll0cks1';
 
 /*
 	validation
@@ -31,6 +36,7 @@ $settings->memc_port = 11211;
 */
 $settings->compressJS = true;
 $settings->compressCSS = true;
+
 $settings->cssStack = array();
 $settings->jsStack = array();
 
@@ -43,4 +49,14 @@ $settings->swearwords = array(
 	'motherfucker'
 );
 
-$setting->restURL = 'http://www.lightupmylove.com';
+/**
+	Memcached persistence
+**/
+$settings->cacheTimes = [
+	'users' => 20,
+	'sites' => 300
+];
+
+$settings->restURL = 'http://dev.lightupmylove.com';
+
+$settings->passwordComplexity = 10;

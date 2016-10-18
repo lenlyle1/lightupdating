@@ -12,8 +12,8 @@ $settings->dbHost = 'localhost';
 $settings->dbName = 'lightupmylove';
 //$settings->dbHostUsers = 'localhost';
 //$settings->dbNameUsers = 'users';	
-$settings->dbUser = 'llyle';
-$settings->dbPass = 'Scr0tums';
+$settings->dbUser = 'site_admin';
+$settings->dbPass = 'B0ll0cks1';
 
 /*
 	validation

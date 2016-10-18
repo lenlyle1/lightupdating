@@ -17,7 +17,7 @@ Class Debugger
 
     private static $newline = "\n";
 
-    private static $logPath = "/www/logs/";
+    private static $logPath = "/var/www/log/";
 
     private static $logfile = "debuglog";
 
@@ -41,6 +41,7 @@ Class Debugger
             return;
         }
         if(!is_dir(self::$logPath)){
+            echo self::$logPath;
             mkdir(self::$logPath);
         }
         if(empty($logfile)){
