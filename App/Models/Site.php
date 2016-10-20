@@ -7,17 +7,24 @@ Class Site extends Base
 	public $table = 'sites';
 
 	private $fields = [
-		'id' => ['type' => 'int', 
-				 'index' => 'primary', 
-				 'auto_increment' => true],
+		'id' => [
+			'type' => 'int', 
+			'length' => 11,
+			'index' => 'primary', 
+			'auto_increment' => true
+		],
 
-		'name' => ['type' => 'varchar', 
-				   'length' => 255, 
-				   'null' => false],
+		'name' => [
+			'type' => 'varchar', 
+		   'length' => 255, 
+		   'null' => false
+		],
 
-		'shortname' => ['type' => 'varchar', 
-						'length' => 255, 
-						'null' => false],
+		'shortname' => [
+			'type' => 'varchar', 
+			'length' => 255, 
+			'null' => false
+		]
 	]
 }
 /*

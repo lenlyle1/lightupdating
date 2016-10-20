@@ -52,7 +52,7 @@ public_html/assets/images/*
 public_html/assets/images/resized/*
 
 # configs 
-Lib/Configs/*
+App/Configs/*
 
 
 
